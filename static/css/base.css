@@ -1,0 +1,23 @@
+.background-image {
+    background: url('/static/images/background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+    position: relative;
+    z-index: 1;
+}
+
+
+.shop-now-button {
+    background-color: #fff;
+    color: #000;
+    border: 2px solid #000;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+}
+
+.shop-now-button:hover,
+.shop-now-button:focus {
+    background-color: transparent;
+    color: #fff;
+    border-color: #fff;
+}
