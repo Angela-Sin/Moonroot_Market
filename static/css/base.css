@@ -1,3 +1,14 @@
+html {
+    height: 100%;
+}
+
+body {
+    background-size: cover;
+    color: #555;
+    font-family: 'Lato', sans-serif;
+}
+
+/* Background section for home hero */
 .background-image {
     background: url('/static/images/background.jpg') no-repeat center center fixed;
     background-size: cover;
@@ -6,12 +17,30 @@
     z-index: 1;
 }
 
+/* From Bulma */
+.icon {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    height: 1.5rem;
+    width: 1.5rem;
+}
 
+.logo-font {
+    text-transform: uppercase;
+}
+
+.main-logo-link {
+    width: fit-content;
+}
+
+/* Buttons */
 .shop-now-button {
     background-color: #fff;
     color: #000;
     border: 2px solid #000;
     font-weight: bold;
+    min-width: 260px;
     transition: all 0.3s ease-in-out;
 }
 
@@ -21,3 +50,49 @@
     color: #fff;
     border-color: #fff;
 }
+
+.btn-black {
+    background: black;
+    color: white;
+}
+
+.btn-black:hover,
+.btn-black:active,
+.btn-black:focus {
+    background: #222;
+    color: white;
+}
+
+/* Utilities */
+.text-black {
+    color: #000 !important;
+}
+
+.border-black {
+    border: 1px solid black !important;
+}
+
+/* -------------------------------- Media Queries */
+
+/* Slightly larger container on xl screens */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 80%;
+    }
+}
+
+/* fixed top navbar only on medium and up */
+@media (min-width: 992px) {
+    .fixed-top-desktop-only {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 1030;
+    }
+
+    .header-container {
+        padding-top: 164px;
+    }
+}
+
