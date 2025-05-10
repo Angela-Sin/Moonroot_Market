@@ -21,6 +21,8 @@
       <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300..900&family=Uncial+Antiqua&family=Winky+Rough:ital,wght@0,300..900&display=swap" rel="stylesheet">
       <link rel="stylesheet" href="{% static 'css/base.css' %}">
       <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+      <link rel="icon" type="image/x-icon" href="{% static 'favicon.ico' %}">
+
     {% endblock %}
 
     {% block extra_css %}
@@ -57,19 +59,32 @@
               </button>
                
               <div class="collapse navbar-collapse" id="mainNavbar">
-                  <ul class="navbar-nav">
-                      {% if request.user.is_authenticated %}
-                          {% if request.user.is_superuser %}
-                              <li class="nav-item"><a class="nav-link" href="#">Product Management</a></li>
-                          {% endif %}
-                          <li class="nav-item"><a class="nav-link" href="#">My Profile</a></li>
-                          <li class="nav-item"><a class="nav-link" href="#">Logout</a></li>
-                      {% else %}
-                          <li class="nav-item"><a class="nav-link" href="#">Register</a></li>
-                          <li class="nav-item"><a class="nav-link" href="#">Login</a></li>
-                      {% endif %}
-                   </ul>
-
+                   <ul class="navbar-nav">
+                        {% if request.user.is_authenticated %}
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    My Profile
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="profileDropdown">
+                                    {% if request.user.is_superuser %}
+                                        <li><a class="dropdown-item" href="#">Manage Products</a></li>
+                                    {% endif %}
+                                    <li><a class="dropdown-item" href="#">View Profile</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a></li>
+                                </ul>
+                            </li>
+                        {% else %}
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    My Profile
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="profileDropdown">
+                                    <li><a class="dropdown-item" href="{% url 'account_signup' %}">Register</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'account_login' %}">Login</a></li>
+                                </ul>
+                            </li>
+                        {% endif %}
+                    </ul>
               <div class="d-flex align-items-center ms-auto">
                 
                   <form class="d-flex me-3" method="GET" action="#">
