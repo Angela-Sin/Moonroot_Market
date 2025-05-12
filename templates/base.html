@@ -87,7 +87,7 @@
                     </ul>
               <div class="d-flex align-items-center ms-auto">
                 
-                  <form class="d-flex me-3" method="GET" action="#">
+                  <form class="d-flex me-3" method="GET" action="{% url 'products' %}">
                       <input class="form-control me-2" type="search" name="q" placeholder="Search our site" aria-label="Search">
                       <button class="btn btn-outline-dark" type="submit">
                           <i class="fas fa-search"></i>
@@ -117,9 +117,19 @@
       
     </header>
 
-    {% if messages %}
-      <div class="message-container"></div>
-    {% endif %}
+    <div class="mt-5">
+        {% if messages %}
+            <div class="container">
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                       {{ message }}
+                       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+    
 
     {% block page_header %}
     {% endblock %}

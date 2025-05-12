@@ -7,17 +7,21 @@ from django.db.models import Q
 def all_products(request):
     """ A view to show all products, including sorting and search queries """
     products = Product.objects.all()
-    query = None
+    query = request.GET.get('q', None)
 
-    if request.GET:
-        if 'q' in request.GET:
-            query = request.GET['q']
-            if not query:
-                messages.error(request, "You didn't enter any search criteria!")
-                return redirect(reverse('products'))
+    if 'q' in request.GET:
+        query = request.GET['q']
+        if not query.strip():
+            messages.error(request, "You didn't enter any search criteria!")
+            context = {
+                'products': Product.objects.all(),
+                'search_term': None,
+            }
+
+            return redirect(reverse('products'))
           
-            queries = Q(name__icontains=query) | Q(description__icontains=query)
-            products = products.filter(queries)
+        queries = Q(name__icontains=query) | Q(description__icontains=query)
+        products = products.filter(queries)
    
     context = {
         'products': products,
