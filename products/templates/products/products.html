@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 
+
 {% block page_header %}
 <div class="container header-container">
     <div class="row">
@@ -11,6 +12,21 @@
 
 {% block content %}
 <div class="container">
+    <!-- Shop by Category -->
+    <div class="text-center mt-5">
+        <h2>Shop by Category</h2>
+        <div class="btn-group mt-3" role="group">
+            <a href="{% url 'products' %}" class="btn {% if not request.GET.category %}btn-success{% else %}btn-outline-success{% endif %}">
+                All Products
+            </a>
+            {% for category in categories %}
+                <a href="{% url 'products' %}?category={{ category.slug }}" class="btn {% if request.GET.category == category.slug %}btn-success{% else %}btn-outline-success{% endif %}">
+                    {{ category.friendly_name }}
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+    
     <div class="row">
         {% for product in products %}
             <div class="col-12 col-md-6 col-lg-4 mb-4">
