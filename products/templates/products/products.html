@@ -1,6 +1,11 @@
 {% extends "base.html" %}
 {% load static %}
 
+<!-- Extra CSS Block -->
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'products/css/products.css' %}">
+{% endblock %}
+
 
 {% block page_header %}
 <div class="container header-container">
@@ -13,9 +18,9 @@
 {% block content %}
 <div class="container">
     <!-- Shop by Category -->
-    <div class="text-center mt-5">
+    <div class="text-center mt-5category-header ">
         <h2>Shop by Category</h2>
-        <div class="btn-group mt-3" role="group">
+        <div class="btn-group mt-3 category-buttons" role="group">
             <a href="{% url 'products' %}" class="btn {% if not request.GET.category %}btn-success{% else %}btn-outline-success{% endif %}">
                 All Products
             </a>
@@ -30,15 +35,15 @@
     <div class="row">
         {% for product in products %}
             <div class="col-12 col-md-6 col-lg-4 mb-4">
-                <div class="card h-100">
+                <div class="card h-100 product-container">
                     {% if product.image %}
-                        <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
+                        <img src="{{ product.image.url }}" class="card-img-top product-image" alt="{{ product.name }}">
                     {% elif product.image_url %}
-                        <img src="{{ product.image_url }}" class="card-img-top" alt="{{ product.name }}">
+                        <img src="{{ product.image_url }}" class="card-img-top product-image" alt="{{ product.name }}">
                     {% endif %}
                     <div class="card-body">
-                        <h5 class="card-title">{{ product.name }}</h5>
-                        <p class="card-text">{{ product.description|truncatechars:100 }}</p>
+                        <h5 class="card-title product-title">{{ product.name }}</h5>
+                        <p class="card-text product-description">{{ product.description|truncatechars:100 }}</p>
                         <p class="card-text"><strong>Price:</strong> ${{ product.price }}</p>
 
                         {% if product.rates %}
@@ -55,6 +60,7 @@
                         {% endif %}
 
                         <a href="{% url 'product_detail' product.id %}" class="btn btn-primary">View Details</a>
+                        <button class="btn btn-success add-to-cart-button" data-product-id="{{ product.id }}">Add to Cart</button>
                     </div>
                 </div>
             </div>

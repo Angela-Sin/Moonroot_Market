@@ -1,0 +1,131 @@
+/* Shop by Category Section */
+.category-header {
+    margin-bottom: 10px; /* Add space below the header */
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9; /* Light gray background */
+}
+
+.category-header h2 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.category-buttons {
+    display: flex;
+    justify-content: center; /* Center the buttons horizontally */
+    gap: 5px; /* Space between buttons */
+}
+
+.category-buttons .btn {
+    padding: 8px 16px;
+    font-size: 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+
+.category-buttons .btn-success {
+    background-color: #28a745; /* Bootstrap success color */
+    color: white;
+    border: none;
+}
+
+.category-buttons .btn-outline-success {
+    background-color: white;
+    color: #28a745;
+    border: 1px solid #28a745;
+}
+
+.category-buttons .btn-outline-success:hover {
+    background-color: #f0f8ff;
+}
+
+.category-buttons .btn-success:hover {
+    background-color: #218838; 
+}
+
+.product-container {
+    margin-bottom: 30px;
+    border: 1px solid #eee;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #fff; /* Add a white background for better contrast */
+}
+
+.product-image {
+    width: 100%;
+    height: 250px; /* Adjust as needed */
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.product-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.product-description {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.product-price {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.add-to-cart-button {
+    background-color: #4CAF50; /* Green */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.add-to-cart-button:hover {
+    background-color: #3e8e41; /* Darker green */
+}
+
+/* Styling for the product grid */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Optional: Style for pagination */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.pagination a {
+    padding: 8px 16px;
+    background-color: #f2f2f2;
+    color: #333;
+    text-decoration: none;
+    border-radius: 4px;
+    margin: 0 5px;
+    transition: background-color 0.3s ease;
+}
+
+.pagination a:hover {
+    background-color: #ddd;
+}
+
+.pagination .active {
+    background-color: #4CAF50;
+    color: white;
+}
