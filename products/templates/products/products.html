@@ -24,9 +24,10 @@
             <a href="{% url 'products' %}" class="btn {% if not request.GET.category %}btn-success{% else %}btn-outline-success{% endif %}">
                 All Products
             </a>
-            {% for category in categories %}
-                <a href="{% url 'products' %}?category={{ category.slug }}" class="btn {% if request.GET.category == category.slug %}btn-success{% else %}btn-outline-success{% endif %}">
-                    {{ category.friendly_name }}
+            {% for category in product_categories %}
+                <a href="{% url 'products' %}?category={{ category.slug }}" 
+                   class="btn {% if request.GET.category == category.slug %}btn-success{% else %}btn-outline-success{% endif %}">
+                    {{ category.friendly_name|default:category.name }}
                 </a>
             {% endfor %}
         </div>
