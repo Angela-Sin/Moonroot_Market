@@ -1,0 +1,112 @@
+/* checkout.css */
+
+/* General Styling */
+body {
+    background-color: #f9f9f9;
+    color: #333;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+/* Header */
+.header-container {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+/* Section Headings */
+h2.logo-font {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Form */
+form#payment-form {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+fieldset {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+.fieldset-label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #666;
+}
+
+input, select, textarea {
+    border-radius: 0 !important;
+}
+
+/* Buttons */
+.btn-black {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-black:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+.btn-outline-black {
+    border: 1px solid #000;
+    color: #000;
+    background: transparent;
+    padding: 10px 20px;
+}
+
+.btn-outline-black:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+/* Table */
+.table th,
+.table td {
+    vertical-align: middle;
+}
+
+.table th {
+    font-weight: bold;
+}
+
+/* Total Summary */
+.h-bag {
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+}
+
+.text-danger {
+    font-weight: 500;
+}
+
+/* Stripe Elements */
+#card-element {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+/* Overlay (if used for visual effect) */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    background: #f2f2f2;
+}
