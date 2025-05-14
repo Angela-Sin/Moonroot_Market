@@ -62,9 +62,9 @@
                 {% csrf_token %}
                 <input type="hidden" name="redirect_url" value="{{ request.path }}">
                 <div class="input-group mb-3" style="max-width: 200px;">
-                    <button class="btn btn-outline-secondary" type="button" id="decrement">-</button>
-                    <input type="number" name="quantity" value="1" min="1" class="form-control text-center" id="quantityInput">
-                    <button class="btn btn-outline-secondary" type="button" id="increment">+</button>
+                    <button class="btn btn-outline-secondary decrement-btn" type="button">-</button>
+                    <input type="number" name="quantity" value="1" min="1" class="form-control text-center quantity-input">
+                    <button class="btn btn-outline-secondary increment-btn" type="button">+</button>
                 </div>
                 <button type="submit" class="btn btn-success">
                     <i class="fas fa-shopping-bag"></i> Add to Bag
@@ -78,17 +78,24 @@
 {% endblock %}
 
 {% block extra_js %}
+
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        const quantityInput = document.getElementById('quantityInput');
-        document.getElementById('increment').addEventListener('click', () => {
-            quantityInput.value = parseInt(quantityInput.value) + 1;
-        });
-        document.getElementById('decrement').addEventListener('click', () => {
-            if (parseInt(quantityInput.value) > 1) {
-                quantityInput.value = parseInt(quantityInput.value) - 1;
-            }
-        });
+        const incrementBtn = document.querySelector('.increment-btn');
+        const decrementBtn = document.querySelector('.decrement-btn');
+        const quantityInput = document.querySelector('.quantity-input');
+
+        if (incrementBtn && decrementBtn && quantityInput) {
+            incrementBtn.addEventListener('click', () => {
+                quantityInput.value = parseInt(quantityInput.value) + 1;
+            });
+
+            decrementBtn.addEventListener('click', () => {
+                if (parseInt(quantityInput.value) > 1) {
+                    quantityInput.value = parseInt(quantityInput.value) - 1;
+                }
+            });
+        }
     });
 </script>
 {% endblock %}
