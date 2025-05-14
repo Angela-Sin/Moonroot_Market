@@ -60,12 +60,42 @@
                             </p>
                         {% endif %}
 
-                        <a href="{% url 'product_detail' product.id %}" class="btn btn-primary">View Details</a>
-                        <button class="btn btn-success add-to-cart-button" data-product-id="{{ product.id }}">Add to Cart</button>
+                        <a href="{% url 'product_detail' product.id %}" class="btn btn-primary mt-2">
+                            View Details
+                        </a>
+
+                        <form method="POST" action="{% url 'bag:add_to_bag' product.id %}" class="mt-4">
+                            {% csrf_token %}
+                            <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                            <div class="input-group mb-3" style="max-width: 200px;">
+                                <button class="btn btn-outline-secondary" type="button" id="decrement">-</button>
+                                <input type="number" name="quantity" value="1" min="1" class="form-control text-center" id="quantityInput">
+                                <button class="btn btn-outline-secondary" type="button" id="increment">+</button>
+                            </div>
+                            <button type="submit" class="btn btn-success">
+                                <i class="fas fa-shopping-bag"></i> Add to Bag
+                            </button>
+                        </form>
                     </div>
                 </div>
             </div>
         {% endfor %}
     </div>
 </div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const quantityInput = document.getElementById('quantityInput');
+        document.getElementById('increment').addEventListener('click', () => {
+            quantityInput.value = parseInt(quantityInput.value) + 1;
+        });
+        document.getElementById('decrement').addEventListener('click', () => {
+            if (parseInt(quantityInput.value) > 1) {
+                quantityInput.value = parseInt(quantityInput.value) - 1;
+            }
+        });
+    });
+</script>
 {% endblock %}

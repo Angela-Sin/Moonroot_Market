@@ -58,7 +58,7 @@
                 <p><strong>Weight:</strong> {{ product.weight }}g</p>
             {% endif %}
 
-            <form method="POST" action="{% url 'add_to_bag' product.id %}" class="mt-4">
+            <form method="POST" action="{% url 'bag:add_to_bag' product.id %}" class="mt-4">
                 {% csrf_token %}
                 <input type="hidden" name="redirect_url" value="{{ request.path }}">
                 <div class="input-group mb-3" style="max-width: 200px;">

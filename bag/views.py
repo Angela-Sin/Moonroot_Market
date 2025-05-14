@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from products.models import Product
+from django.contrib import messages
+
 
 
 def view_bag(request):
@@ -49,3 +51,19 @@ def add_to_bag(request, item_id):
     request.session['bag'] = bag
     
     return redirect(redirect_url)
+
+
+def remove_from_bag(request, item_id):
+    """Remove an item from the shopping bag"""
+    
+    product = get_object_or_404(Product, pk=item_id)
+    bag = request.session.get('bag', {})
+    item_id = str(item_id)
+
+    if item_id in bag:
+        del bag[item_id]
+        messages.warning(request, f'Removed {product.name} from your bag')
+
+    request.session['bag'] = bag
+    
+    return redirect('bag:view_bag')

@@ -11,44 +11,130 @@
 
 {% block content %}
 <div class="overlay"></div>
-<div class="container bg-white p-4 rounded shadow-sm mb-5">
-    <h2 class="logo-font mb-4">Shopping Bag</h2>
-    <hr>
-    {% if bag_items %}
-        <div class="table-responsive">
-            <table class="table align-middle text-center">
-                <thead class="table-light">
-                    <tr>
-                        <th>Product</th>
-                        <th>Qty</th>
-                        <th>Price</th>
-                        <th>Subtotal</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for item in bag_items %}
-                        <tr>
-                            <td>{{ item.product.name }}</td>
-                            <td>{{ item.quantity }}</td>
-                            <td>${{ item.product.price }}</td>
-                            <td>${{ item.subtotal|floatformat:2 }}</td>
-                        </tr>
-                    {% endfor %}
-                    <tr class="fw-bold">
-                        <td colspan="3" class="text-end">Total:</td>
-                        <td>${{ grand_total|floatformat:2 }}</td>
-                    </tr>
-                </tbody>
-            </table>
+<div class="container mb-2">
+    <div class="row">
+        <div class="col">
+            <hr>
+            <h2 class="logo-font mb-4">Shopping Bag</h2>
+            <hr>
         </div>
-        <div class="text-end mt-4">
-            <a href="#" class="btn btn-success">Proceed to Checkout</a>
-        </div>
-    {% else %}
-        <p class="lead">Your bag is empty.</p>
-        <a href="{% url 'products' %}" class="btn btn-outline-dark">
-            <i class="fas fa-chevron-left"></i> Keep Shopping
-        </a>
+    </div>
+
+    {% if messages %}
+    <div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 1055;">
+        {% for message in messages %}
+          <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="{{ message.get_level_tag_display|escape }}">
+            <div class="toast-header">
+              {% if message.level == messages.ERROR %}
+                <i class="fas fa-exclamation-triangle text-danger me-2"></i>
+              {% elif message.level == messages.WARNING %}
+                <i class="fas fa-exclamation-circle text-warning me-2"></i>
+              {% elif message.level == messages.INFO %}
+                <i class="fas fa-info-circle text-info me-2"></i>
+              {% else %}
+                <i class="fas fa-check-circle text-success me-2"></i>
+              {% endif %}
+              <strong class="me-auto">Alert!</strong>
+              <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+              {{ message }}
+            </div>
+          </div>
+        {% endfor %}
+    </div>
     {% endif %}
+
+    <div class="row">
+        <div class="col">
+            {% if bag_items %}
+            <div class="table-responsive rounded">
+                <table class="table table-sm table-borderless">
+                    <thead class="text-black">
+                        <tr>
+                            <th scope="col">Product Info</th>
+                            <th scope="col"></th>
+                            <th scope="col">Qty</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Subtotal</th>
+                            <th scope="col">Remove</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in bag_items %}
+                        <tr>
+                            <td class="p-3 w-25">
+                                {% if item.product.image %}
+                                    <img class="img-fluid rounded" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+                                {% else %}
+                                    <img class="img-fluid rounded" src="{% static 'images/no-image.png' %}" alt="No image">
+                                {% endif %}
+                            </td>
+                            <td class="py-3">
+                                <p class="my-0"><strong>{{ item.product.name }}</strong></p>
+                                <p class="my-0 small text-muted">SKU: {{ item.product.sku|upper }}</p>
+                            </td>
+                            <td class="py-3">
+                                {{ item.quantity }}
+                            </td>
+                            <td class="py-3">
+                                ${{ item.product.price }}
+                            </td>
+                            <td class="py-3">
+                                ${{ item.item_total|floatformat:2 }}
+                            </td>
+                            <td class="py-3">
+                                <form action="{% url 'bag:remove_from_bag' item.item_id %}" method="POST">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn btn-danger btn-sm">Remove</button>
+                                </form>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                        <tr>
+                            <td colspan="5" class="pt-5 text-end">
+                                <h6><strong>Bag Total: ${{ total|floatformat:2 }}</strong></h6>
+                                <h6>Delivery: ${{ delivery|floatformat:2 }}</h6>
+                                <h4 class="mt-4">
+                                    <strong>Grand Total: ${{ grand_total|floatformat:2 }}</strong>
+                                </h4>
+                                {% if free_delivery_delta > 0 %}
+                                <p class="mb-1 text-danger">
+                                    Spend <strong>${{ free_delivery_delta|floatformat:2 }}</strong> more for free delivery!
+                                </p>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="5" class="text-end">
+                                <a href="{% url 'products' %}" class="btn btn-outline-dark rounded-0 btn-lg">
+                                    <i class="fas fa-chevron-left"></i> Keep Shopping
+                                </a>
+                                <a href="#" class="btn btn-success rounded-0 btn-lg">
+                                    <i class="fas fa-lock"></i> Checkout
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            {% else %}
+                <p class="lead mb-5">Your bag is empty.</p>
+                <a href="{% url 'products' %}" class="btn btn-outline-dark rounded-0 btn-lg">
+                    <i class="fas fa-chevron-left"></i> Keep Shopping
+                </a>
+            {% endif %}
+        </div>
+    </div>
 </div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const toastElList = document.querySelectorAll('.toast');
+        const toastList = [...toastElList].map(toastEl => new bootstrap.Toast(toastEl));  
+
+        toastList.forEach(toast => toast.show());
+    });
+</script>
+
 {% endblock %}
