@@ -113,7 +113,7 @@
                       {% endif %}
                     </ul>
 
-                    <a class="nav-link {% if grand_total %}text-success fw-bold{% else %}text-dark{% endif %}" href="#">
+                    <a class="nav-link {% if grand_total %}text-success fw-bold{% else %}text-dark{% endif %}" href="{% url 'view_bag' %}">
                       <div class="text-center">
                         <i class="fas fa-shopping-bag fa-lg"></i>
                         <p class="mb-0 small">
