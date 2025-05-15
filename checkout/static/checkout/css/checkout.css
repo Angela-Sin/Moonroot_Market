@@ -1,6 +1,7 @@
 .StripeElement,
 .stripe-style-input {
   box-sizing: border-box;
+  width: 100%;
   height: 40px;
   padding: 10px 12px;
   border: 1px solid transparent;
@@ -34,4 +35,18 @@
 #card-element {
     color: #000;
     border: 1px solid #000;
+}
+
+
+/* Responsive tweaks for smaller screens */
+@media (max-width: 768px) {
+  .stripe-style-input,
+  .StripeElement {
+    height: 45px;
+    padding: 12px 14px;
+  }
+
+  .fieldset-label {
+    font-size: 0.85rem;
+  }
 }
