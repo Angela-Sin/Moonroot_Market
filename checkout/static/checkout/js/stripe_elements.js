@@ -74,9 +74,11 @@ document.addEventListener('DOMContentLoaded', function () {
     form.addEventListener('submit', function (ev) {
         ev.preventDefault();
 
+
         // Disable the card input and submit button
         card.update({ 'disabled': true });
         document.getElementById('submit-button').disabled = true;
+        
 
         // Confirm the payment using the client secret
         stripe.confirmCardPayment(clientSecret, {
@@ -95,7 +97,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 `;
                 errorDiv.innerHTML = html;
 
-                // Enable the card input and submit button again
                 card.update({ 'disabled': false });
                 document.getElementById('submit-button').disabled = false;
             } else {
