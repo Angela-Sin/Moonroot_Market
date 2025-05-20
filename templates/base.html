@@ -91,14 +91,14 @@
                     <ul class="navbar-nav">
                       {% if request.user.is_authenticated %}
                         <li class="nav-item dropdown">
-                          <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          <a class="nav-link dropdown-toggle" href="{% url 'profile' %}" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             My Profile
                           </a>
                           <ul class="dropdown-menu" aria-labelledby="profileDropdown">
                             {% if request.user.is_superuser %}
                               <li><a class="dropdown-item" href="#">Manage Products</a></li>
                             {% endif %}
-                            <li><a class="dropdown-item" href="#">View Profile</a></li>
+                            <li><a class="dropdown-item" href="{% url 'profile' %}">View Profile</a></li>
                             <li><a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a></li>
                           </ul>
                         </li>
