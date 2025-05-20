@@ -71,6 +71,14 @@
                 </button>
             </form>
 
+            {% if request.user.is_superuser %}
+                            <small class="ml-3 d-block mt-2">
+                                <a href="{% url 'edit_product' product.id %}">Edit</a> | 
+                                <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
+                            </small>
+                        {% endif %}
+
+
             <a href="{% url 'products' %}" class="btn btn-secondary mt-3">Back to Products</a>
         </div>
     </div>
