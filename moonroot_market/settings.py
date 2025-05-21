@@ -32,7 +32,7 @@ DEBUG = True
 ALLOWED_HOSTS = [
     '127.0.0.1',  # vs code preview
     'localhost',  # listen for stripe webhook
-    'https://moonroot-market-41ba98f58574.herokuapp.com/',
+    'moonroot-market-41ba98f58574.herokuapp.com',
 ]
 
 
