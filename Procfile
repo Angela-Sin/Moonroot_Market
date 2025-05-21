@@ -1,0 +1,1 @@
+web: gunicorn moonroot_market.wsgi:application
