@@ -47,7 +47,7 @@
   <body>
     <header class="container-fluid fixed-top">
         {% with request.resolver_match.url_name as url_name %}
-        <nav class="navbar navbar-expand-lg bg-white border-bottom fixed-top shadow-sm">
+        <nav class="navbar navbar-expand-lg fixed-top site-header">
             <div class="container-fluid">
 
                 <a class="navbar-brand me-3" href="{% url 'home' %}">
@@ -163,7 +163,7 @@
     </main>
     
     <!-- Footer -->
-    <footer>
+    <footerc class="site-footer" >
     <div class="container">
       <div class="row">
 
