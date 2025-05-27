@@ -151,15 +151,64 @@
     </div>
     {% endif %}
     
+    <main class="flex-grow-1 style=position: relative">
+        {% if messages %}
+            <div class="mt-5">
+                <!-- messages -->
+            </div>
+        {% endif %}
 
-    {% block page_header %}
-    {% endblock %}
+        {% block page_header %}{% endblock %}
+        {% block content %}{% endblock %}
+    </main>
+    
+    <!-- Footer -->
+    <footer>
+    <div class="container">
+      <div class="row">
 
-    {% block content %}
-    {% endblock %}
+        <div class="col-md-6 mb-4">
+          <h3>Moonroot Market</h3>
+          <p>Specialty goods from local growers, herbalists &amp; dreamers.</p>
 
-    {% block postloadjs %}
-    {% endblock %}
+          <form action="https://gmail.us21.list-manage.com/subscribe/post?u=ca40641d1f286cf2b471a85d5&amp;id=3740986c99" method="post" class="validate" novalidate>
+            <h5>Subscribe to Our Newsletter</h5>
+            <div class="mb-2">
+              <label for="mce-EMAIL" class="form-label">Email Address</label>
+              <input id="mce-EMAIL" type="email" name="EMAIL" class="form-control" required />
+            </div>
+            <button class="btn btn-outline-light btn-sm" type="submit">Subscribe</button>
+          </form>
+        </div>
+
+        <div class="col-md-3 mb-4">
+          <h5>Explore</h5>
+          <ul class="list-unstyled">
+            <li><a href="#">All Products</a></li>
+            <li><a href="#">Herbal Recipes</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-3 mb-4">
+          <h5>Follow Us</h5>
+          <ul class="list-inline">
+            <li class="list-inline-item"><a href="#" aria-label="Facebook"><i class="fab fa-facebook fa-lg"></i></a></li>
+            <li class="list-inline-item"><a href="#" aria-label="Twitter"><i class="fab fa-twitter fa-lg"></i></a></li>
+            <li class="list-inline-item"><a href="#" aria-label="YouTube"><i class="fab fa-youtube fa-lg"></i></a></li>
+            <li class="list-inline-item"><a href="#" aria-label="Instagram"><i class="fab fa-instagram fa-lg"></i></a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="row mt-4">
+        <div class="col text-center">
+          <small>&copy; 2025 Moonroot Market | Rooted in community &amp; care.</small>
+        </div>
+      </div>
+    </div>
+  </footer>
     
   </body>
 </html>

@@ -1,11 +1,21 @@
-html {
+html, body {
     height: 100%;
+    margin: 0;
+    font-family: 'Lato', sans-serif;
+    color: #555;
+    display: flex;
+    flex-direction: column;
+    background: #000; /* fallback */
 }
 
-body {
-    background-size: cover;
-    color: #555;
-    font-family: 'Lato', sans-serif;
+main {
+    flex: 1 0 auto;
+    padding-top: 100px;  /* push content below header */
+    padding-right: 1rem;
+    padding-bottom: 2rem;
+    padding-left: 1rem;
+    color: white;
+    text-align: right;
 }
 
 header {
@@ -13,14 +23,20 @@ header {
     top: 0;
     left: 0;
     right: 0;
+    height: 80px;
     z-index: 1031;
     width: 100%;
     background: #fff;
     overflow: hidden;
 }
 
+.header-container {
+    padding-top: 80px;
+}
+
 /* Background section for home hero */
 .background-image {
+    position: fixed;
     background: url('/static/images/background.jpg') no-repeat center center fixed;
     background-size: cover;
     height: 100vh; 
@@ -29,6 +45,10 @@ header {
     top: 0;
     left: 0;
     z-index: -1; 
+}
+
+.content-padding-top {
+  padding-top: 100px;
 }
 
 /* From Bulma */
@@ -96,6 +116,38 @@ header {
     transition: top 0.3s ease-in-out;
 }
 
+/* Footer text styling */
+.site-footer h5,
+.site-footer h3 {
+    font-family: 'Uncial Antiqua', serif;
+    color: #fff;
+}
+
+.site-footer a {
+    color: #bbb;
+    text-decoration: none;
+}
+
+.site-footer a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.site-footer .form-control {
+    background-color: #333;
+    border: 1px solid #555;
+    color: #eee;
+}
+
+.site-footer .btn-outline-light {
+    border-color: #fff;
+    color: #fff;
+}
+
+.site-footer .btn-outline-light:hover {
+    background-color: #fff;
+    color: #000;
+}
 
 
 /* -------------------------------- Media Queries */
