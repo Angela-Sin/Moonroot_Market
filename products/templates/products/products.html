@@ -16,100 +16,194 @@
 {% endblock %}
 
 {% block content %}
-<div class="container">
+<div class="overlay"></div> {# For potential popups or off-canvas elements, if you add them later #}
+<div class="container product-page-wrapper my-5"> {# Added my-5 for vertical margin #}
     <!-- Shop by Category -->
-    <div class="text-center mt-5 category-header ">
+    <div class="text-center category-header">
         <h2>Shop by Category</h2>
-        <div class="btn-group mt-3 category-buttons" role="group">
-            <a href="{% url 'products' %}" class="btn {% if not request.GET.category %}btn-success{% else %}btn-outline-success{% endif %}">
+        <div class="btn-group category-buttons" role="group" aria-label="Product Categories">
+            <a href="{% url 'products' %}{% if request.GET.sort %}{% if request.GET.category or not request.GET.sort %}?{% else %}&{% endif %}sort={{ request.GET.sort }}{% endif %}{% if request.GET.direction %}&direction={{ request.GET.direction }}{% endif %}" 
+               class="btn {% if not request.GET.category %}btn-success{% else %}btn-outline-success{% endif %}">
                 All Products
             </a>
             {% for category in product_categories %}
-                <a href="{% url 'products' %}?category={{ category.slug }}" 
+                <a href="{% url 'products' %}?category={{ category.slug }}{% if request.GET.sort %}&sort={{ request.GET.sort }}{% endif %}{% if request.GET.direction %}&direction={{ request.GET.direction }}{% endif %}" 
                    class="btn {% if request.GET.category == category.slug %}btn-success{% else %}btn-outline-success{% endif %}">
                     {{ category.friendly_name|default:category.name }}
                 </a>
             {% endfor %}
         </div>
     </div>
-    
+
+    {% if products %}
+    <!-- Sorting Controls Placeholder (Implement backend logic as needed) -->
     <div class="row">
-        {% for product in products %}
-            <div class="col-12 col-md-6 col-lg-4 mb-4">
-                <div class="card h-100 product-container">
-                    {% if product.image %}
-                        <img src="{{ product.image.url }}" class="card-img-top product-image" alt="{{ product.name }}">
-                    {% elif product.image_url %}
-                        <img src="{{ product.image_url }}" class="card-img-top product-image" alt="{{ product.name }}">
+        <div class="col-12">
+            <div class="sorting-controls mb-4">
+                <form method="GET" action="{% url 'products' %}" class="form-inline">
+                    {% if request.GET.category %}
+                        <input type="hidden" name="category" value="{{ request.GET.category }}">
                     {% endif %}
-                    <div class="card-body">
-                        <h5 class="card-title product-title">{{ product.name }}</h5>
-                        <p class="card-text product-description">{{ product.description|truncatechars:100 }}</p>
-                        <p class="card-text"><strong>Price:</strong> ${{ product.price }}</p>
+                    <label for="sort-select">Sort by:</label>
+                    <select name="sort" id="sort-select" class="form-control form-control-sm mr-2" onchange="this.form.submit()">
+                        <option value="name_asc" {% if request.GET.sort == 'name_asc' or not request.GET.sort and not request.GET.direction %}selected{% endif %}>Name (A-Z)</option>
+                        <option value="name_desc" {% if request.GET.sort == 'name_desc' %}selected{% endif %}>Name (Z-A)</option>
+                        <option value="price_asc" {% if request.GET.sort == 'price_asc' %}selected{% endif %}>Price (Low to High)</option>
+                        <option value="price_desc" {% if request.GET.sort == 'price_desc' %}selected{% endif %}>Price (High to Low)</option>
+                        <option value="rating_desc" {% if request.GET.sort == 'rating_desc' %}selected{% endif %}>Rating (High to Low)</option>
+                        {# Add more sort options as needed, e.g., by date added #}
+                    </select>
+                    {# You might also want a direction toggle if not baked into sort values #}
+                </form>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    
+    <div class="product-grid"> {# Replaced class="row" with "product-grid" #}
+        {% for product in products %}
+            {# Removed col-*-* classes here, .product-grid CSS handles columns #}
+            <div class="card h-100 product-card">
+                <a href="{% url 'product_detail' product.id %}" class="product-image-container">
+                    {% if product.image %}
+                        <img src="{{ product.image.url }}" class="product-image" alt="{{ product.name }}">
+                    {% elif product.image_url %}
+                        <img src="{{ product.image_url }}" class="product-image" alt="{{ product.name }}">
+                    {% else %}
+                        <img src="{% static 'images/noimage.png' %}" class="product-image" alt="No image available"> {# Placeholder image #}
+                    {% endif %}
+                </a>
+                <div class="card-body">
+                    <h5 class="card-title product-title">
+                        <a href="{% url 'product_detail' product.id %}" class="text-dark text-decoration-none">{{ product.name }}</a>
+                    </h5>
+                    
+                    {% if product.rates %}
+                       <p class="product-rating small">
+                           {# <strong>Rating:</strong> {{ product.rates|floatformat:1 }} / 5 #}
+                           {% widthratio product.rates 1 5 as rating_percentage %}
+                           <span class="star-rating" title="{{ product.rates|floatformat:1 }} out of 5 stars">
+                            {% for i in "12345" %}
+                                {% if forloop.counter <= product.rates|floatformat:0 %}
+                                    <i class="fas fa-star"></i>
+                                {% elif forloop.counter|add:"-0.5" == product.rates|floatformat:1 %} {# Handle half stars if applicable #}
+                                    <i class="fas fa-star-half-alt"></i>
+                                {% else %}
+                                    <i class="far fa-star"></i>
+                                {% endif %}
+                            {% endfor %}
+                           </span>
+                           <span class="text-muted">({{ product.rates|floatformat:1 }})</span>
+                        </p>
+                    {% else %}
+                        <p class="product-rating small text-muted">No ratings yet</p>
+                    {% endif %}
 
-                        {% if product.rates %}
-                           <p>
-                               <strong>Rating:</strong> {{ product.rates }} / 5
-                               {% for i in "12345" %}
-                                    {% if forloop.counter <= product.rates|floatformat:0 %}
-                                        <i class="fas fa-star text-warning"></i>
-                                    {% else %}
-                                        <i class="far fa-star text-warning"></i>
-                                    {% endif %}
-                                {% endfor %}
-                            </p>
-                        {% endif %}
+                    <p class="card-text product-description">{{ product.description|truncatewords_html:20|safe }}</p>
+                    
+                    <div class="product-actions"> {# Wrapper for price and buttons #}
+                        <p class="product-price mb-2">${{ product.price|floatformat:2 }}</p>
 
-                        <a href="{% url 'product_detail' product.id %}" class="btn btn-primary mt-2">
-                            View Details
-                        </a>
+                        <form method="POST" action="{% url 'bag:add_to_bag' product.id %}" class="add-to-bag-form">
+                            {% csrf_token %}
+                            <input type="hidden" name="redirect_url" value="{{ request.get_full_path }}">
+                            <div class="input-group mb-2">
+                                <button class="btn btn-outline-secondary decrement-btn" type="button" aria-label="Decrease quantity">-</button>
+                                <input type="number" name="quantity" value="1" min="1" max="99" class="form-control text-center quantity-input" aria-label="Quantity">
+                                <button class="btn btn-outline-secondary increment-btn" type="button" aria-label="Increase quantity">+</button>
+                            </div>
+                            <div class="d-flex flex-column flex-sm-row">
+                                <button type="submit" class="btn add-to-bag-btn mb-2 mb-sm-0 mr-sm-2">
+                                    <i class="fas fa-shopping-bag fa-sm"></i> Add to Bag
+                                </button>
+                                <a href="{% url 'product_detail' product.id %}" class="btn view-details-btn">
+                                    View Details
+                                </a>
+                            </div>
+                        </form>
 
                         {% if request.user.is_superuser %}
-                            <small class="ml-3 d-block mt-2">
+                            <small class="admin-links text-muted">
                                 <a href="{% url 'edit_product' product.id %}">Edit</a> | 
                                 <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
                             </small>
                         {% endif %}
-
-                        <form method="POST" action="{% url 'bag:add_to_bag' product.id %}" class="mt-4">
-                            {% csrf_token %}
-                            <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                            <div class="input-group mb-3" style="max-width: 200px;">
-                                <button class="btn btn-outline-secondary decrement-btn" type="button">-</button>
-                                <input type="number" name="quantity" value="1" min="1" class="form-control text-center quantity-input">
-                                <button class="btn btn-outline-secondary increment-btn" type="button">+</button>
-                            </div>
-                            <button type="submit" class="btn btn-success">
-                                <i class="fas fa-shopping-bag"></i> Add to Bag
-                            </button>
-                        </form>
                     </div>
                 </div>
             </div>
+        {% empty %}
+            <div class="col-12">
+                <p class="no-products-message">
+                    {% if request.GET.category %}
+                        Sorry, there are no products in this category yet.
+                    {% else %}
+                        Sorry, no products match your criteria.
+                    {% endif %}
+                    <br>
+                    <a href="{% url 'products' %}" class="btn btn-outline-success mt-3">Browse All Products</a>
+                </p>
+            </div>
         {% endfor %}
     </div>
+
+    {% if products.has_other_pages %}
+    <nav aria-label="Product navigation" class="mt-5">
+        <ul class="pagination">
+            {% if products.has_previous %}
+                <li class="page-item"><a class="page-link" href="?page={{ products.previous_page_number }}{% for key, value in request.GET.items %}{% if key != 'page' %}&{{ key }}={{ value }}{% endif %}{% endfor %}">« Previous</a></li>
+            {% else %}
+                <li class="page-item disabled"><span class="page-link">« Previous</span></li>
+            {% endif %}
+
+            {% for i in products.paginator.page_range %}
+                {% if products.number == i %}
+                    <li class="page-item active" aria-current="page"><span class="page-link">{{ i }} <span class="sr-only">(current)</span></span></li>
+                {% elif i > products.number|add:'-3' and i < products.number|add:'3' %} {# Show a few pages around current #}
+                    <li class="page-item"><a class="page-link" href="?page={{ i }}{% for key, value in request.GET.items %}{% if key != 'page' %}&{{ key }}={{ value }}{% endif %}{% endfor %}">{{ i }}</a></li>
+                {% elif i == products.number|add:'-3' or i == products.number|add:'3' %}
+                     <li class="page-item disabled"><span class="page-link">...</span></li>
+                {% endif %}
+            {% endfor %}
+
+            {% if products.has_next %}
+                <li class="page-item"><a class="page-link" href="?page={{ products.next_page_number }}{% for key, value in request.GET.items %}{% if key != 'page' %}&{{ key }}={{ value }}{% endif %}{% endfor %}">Next »</a></li>
+            {% else %}
+                <li class="page-item disabled"><span class="page-link">Next »</span></li>
+            {% endif %}
+        </ul>
+    </nav>
+    {% endif %}
+
 </div>
 {% endblock %}
 
 {% block extra_js %}
+{{ block.super }} {# In case base.html has extra_js #}
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        const productForms = document.querySelectorAll('.product-container');
+        // Quantity increment/decrement
+        const productCards = document.querySelectorAll('.product-card');
 
-        productForms.forEach(product => {
-            const incrementBtn = product.querySelector('.increment-btn');
-            const decrementBtn = product.querySelector('.decrement-btn');
-            const quantityInput = product.querySelector('.quantity-input');
+        productCards.forEach(card => {
+            const incrementBtn = card.querySelector('.increment-btn');
+            const decrementBtn = card.querySelector('.decrement-btn');
+            const quantityInput = card.querySelector('.quantity-input');
 
-            incrementBtn.addEventListener('click', () => {
-                quantityInput.value = parseInt(quantityInput.value) + 1;
-            });
+            if (incrementBtn && decrementBtn && quantityInput) {
+                incrementBtn.addEventListener('click', () => {
+                    let currentValue = parseInt(quantityInput.value);
+                    if (currentValue < parseInt(quantityInput.max || 99)) { // Use max attribute or default
+                        quantityInput.value = currentValue + 1;
+                    }
+                });
 
-            decrementBtn.addEventListener('click', () => {
-                if (parseInt(quantityInput.value) > 1) {
-                    quantityInput.value = parseInt(quantityInput.value) - 1;
-                }
-            });
+                decrementBtn.addEventListener('click', () => {
+                    let currentValue = parseInt(quantityInput.value);
+                    if (currentValue > parseInt(quantityInput.min || 1)) { // Use min attribute or default
+                        quantityInput.value = currentValue - 1;
+                    }
+                });
+            }
         });
     });
 </script>

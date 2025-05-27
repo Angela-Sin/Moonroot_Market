@@ -45,6 +45,7 @@
     <title>{% block extra_title %}Moonroot Market {% endblock %}</title>
   </head>
   <body>
+    <div class="background-image"></div>
     <header class="container-fluid fixed-top">
         {% with request.resolver_match.url_name as url_name %}
         <nav class="navbar navbar-expand-lg fixed-top site-header">
@@ -117,7 +118,7 @@
 
                     <a class="nav-link {% if grand_total %}text-success fw-bold{% else %}text-dark{% endif %}" href="{% url 'bag:view_bag' %}">
                       <div class="text-center">
-                        <i class="fas fa-shopping-bag fa-lg"></i>
+                        <i class="fas fa-shopping-bag fa-lg {% if grand_total %}text-custom-green{% else %}text-dark{% endif %}"></i>
                         <p class="mb-0 small">
                           {% if grand_total %}
                             ${{ grand_total|floatformat:2 }}

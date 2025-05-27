@@ -68,6 +68,10 @@ main {
     filter: invert(1); /* invert icon color for dark background */
 }
 
+.text-custom-green {
+    color: #0f0 !important;
+}
+
 /* Background section for home hero */
 .background-image {
     position: fixed; 
@@ -212,7 +216,7 @@ main {
     }
 
     .header-container {
-        padding-top: 164px;
+        padding-top: 90px;
     }
 }
 
