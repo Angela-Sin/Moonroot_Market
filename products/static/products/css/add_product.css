@@ -1,0 +1,137 @@
+/* add_product.css */
+
+body {
+    font-family: sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Header Styling */
+.header-container {
+    padding-top: 90px;
+}
+
+/* Product Management Header */
+h2.logo-font {
+    font-family: 'Your Logo Font', sans-serif; 
+    font-size: 2.5em;
+    color: #fff; 
+}
+
+h5.text-muted {
+    color: #777;
+    font-size: 1.1em;
+}
+
+/* Form Styling */
+.form {
+    background-color: #1e1e1e; 
+    padding: 20px;
+    border-radius: 5px;
+    color: #fff; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.form label {
+    font-weight: bold;
+    color: #ccc; 
+    display: block; 
+    margin-bottom: 5px;
+}
+
+.form input[type="text"],
+.form input[type="email"],
+.form input[type="number"],
+.form textarea,
+.form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 1rem;
+    border: 1px solid #555; 
+    border-radius: 4px;
+    background-color: #333; 
+    color: #eee; 
+    box-sizing: border-box;
+    font-size: 1em;
+}
+
+.form input[type="file"] {
+    margin-bottom: 1rem;
+}
+
+/* Image Preview */
+#new-image {
+    margin-bottom: 1rem;
+}
+
+#filename {
+    font-style: italic;
+    color: #aaa; 
+    margin-top: 5px;
+    display: block;
+}
+
+/* Button Styling */
+.btn-black {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 12px 24px; 
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+}
+
+.btn-black:hover,
+.btn-black:active,
+.btn-black:focus {
+    background-color: #555;
+    color: #fff;
+    outline: none;
+}
+
+.btn-outline-black {
+    background-color: transparent;
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 12px 24px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-weight: bold;
+}
+
+.btn-outline-black:hover,
+.btn-outline-black:active,
+.btn-outline-black:focus {
+    background-color: #fff;
+    color: #333;
+    outline: none;
+}
+
+/* Cancel Button */
+a.btn-outline-black {
+    margin-right: 10px;
+}
+
+/* Error Messages */
+.text-danger {
+    color: #dc3545;
+    font-size: 0.9em;
+    margin-top: 5px;
+    display: block;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .col-md-6 {
+        text-align: center;
+    }
+
+    .form {
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

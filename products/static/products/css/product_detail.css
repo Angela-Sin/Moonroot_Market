@@ -1,0 +1,102 @@
+/* Product Details Container */
+
+.product-detail-container {
+    background-color: #1e1e1e;
+    padding: 20px;
+    border-radius: 5px;
+    color: #fff;
+}
+
+/* Product Details Section */
+h3 {
+    color: #fff;
+}
+
+p {
+    color: #ccc;
+    line-height: 1.6;
+}
+
+strong {
+    color: #fff;
+}
+
+/* Rating Stars */
+.fas.fa-star, .far.fa-star {
+    color: #0f0;
+}
+
+/* Form Styling */
+.input-group {
+    margin-bottom: 1rem;
+}
+
+.decrement-btn, .increment-btn {
+    background-color: #333;
+    border: 1px solid #555;
+    color: #fff;
+}
+
+.decrement-btn:hover, .increment-btn:hover {
+    background-color: #555;
+    border-color: #777;
+}
+
+.quantity-input {
+    background-color: #333;
+    border: 1px solid #555;
+    color: #eee;
+    text-align: center;
+}
+
+/* Add to Bag Button */
+.shop-now-button {
+    background-color: #fff;
+    color: #000;
+    border: 2px solid #000;
+    font-weight: bold;
+    min-width: 260px;
+    transition: all 0.3s ease-in-out;
+}
+
+.shop-now-button:hover,
+.shop-now-button:focus {
+    background-color: transparent;
+    color: #fff;
+    border-color: #fff;
+}
+
+/* Back to Products Button */
+.btn-black {
+    background: black;
+    color: white;
+}
+
+.btn-black:hover,
+.btn-black:active,
+.btn-black:focus {
+    background: #222;
+    color: white;
+}
+
+/* Superuser Links */
+a {
+    color: #0ff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.text-danger {
+    color: #dc3545;
+}
+
+/* Media Queries (Optional - adjust as needed) */
+@media (max-width: 768px) {
+    /* Adjustments for smaller screens */
+    .col-md-6 {
+        text-align: center;
+    }
+}

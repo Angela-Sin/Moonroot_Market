@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'products/css/add_product.css' %}">
+{% endblock %}
+
 {% block page_header %}
     <div class="container header-container">
         <div class="row">
@@ -23,7 +27,8 @@
 
         <div class="row">
             <div class="col-12 col-md-6">
-                <form method="POST" action="{% url 'add_product' %}" class="form mb-2" enctype="multipart/form-data">
+                <div class="custom-form">
+                <form method="POST" action="{% url 'add_product' %}" class="mb-2" enctype="multipart/form-data">
                     {% csrf_token %}
                     {% for field in form %}
                         {% if field.name != 'image' %}
@@ -32,11 +37,17 @@
                             {{ field }}
                         {% endif %}
                     {% endfor %}
+
+                    <div class="image-preview-container"> 
+                            <p id="filename" class="text-muted"></p>
+                    </div>
+
                     <div class="text-right">
                         <a class="btn btn-outline-black rounded-0" href="{% url 'products' %}">Cancel</a>
                         <button class="btn btn-black rounded-0" type="submit">Add Product</button>
                     </div>
                 </form>
+                </div>
             </div>            
         </div>
     </div>

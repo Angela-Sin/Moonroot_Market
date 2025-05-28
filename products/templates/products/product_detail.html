@@ -1,6 +1,11 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'products/css/product_detail.css' %}">>
+{% endblock %}
+
+
 {% block page_header %}
 <div class="container header-container">
     <div class="row">
@@ -12,7 +17,7 @@
 {% endblock %}
 
 {% block content %}
-<div class="container my-5">
+<div class="container my-5 product-detail-container">
     <div class="row">
         <div class="col-md-6">
             {% if product.image %}

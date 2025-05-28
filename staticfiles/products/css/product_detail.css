@@ -1,0 +1,108 @@
+/* product_detail.css */
+
+/* Header Styling */
+.header-container {
+    padding-top: 90px; /* Adjust as needed to avoid overlap with fixed header */
+}
+
+/* Product Details Container */
+.product-detail-container {
+    background-color: #1e1e1e; /* Darker background for better contrast */
+    padding: 20px;
+    border-radius: 5px;
+    color: #fff; /* Set default text color to white */
+}
+
+/* Product Details Section */
+h3 {
+    color: #fff;
+}
+
+p {
+    color: #ccc; /* Lighter grey for readability */
+    line-height: 1.6; /* Improve line spacing */
+}
+
+strong {
+    color: #fff;
+}
+
+/* Rating Stars */
+.fas.fa-star, .far.fa-star {
+    color: #0f0; /* Green stars */
+}
+
+/* Form Styling */
+.input-group {
+    margin-bottom: 1rem;
+}
+
+.decrement-btn, .increment-btn {
+    background-color: #333;
+    border: 1px solid #555;
+    color: #fff;
+}
+
+.decrement-btn:hover, .increment-btn:hover {
+    background-color: #555;
+    border-color: #777;
+}
+
+.quantity-input {
+    background-color: #333;
+    border: 1px solid #555;
+    color: #eee;
+    text-align: center;
+}
+
+/* Add to Bag Button */
+.shop-now-button {
+    background-color: #fff;
+    color: #000;
+    border: 2px solid #000;
+    font-weight: bold;
+    min-width: 260px;
+    transition: all 0.3s ease-in-out;
+}
+
+.shop-now-button:hover,
+.shop-now-button:focus {
+    background-color: transparent;
+    color: #fff;
+    border-color: #fff;
+}
+
+/* Back to Products Button */
+.btn-black {
+    background: black;
+    color: white;
+}
+
+.btn-black:hover,
+.btn-black:active,
+.btn-black:focus {
+    background: #222;
+    color: white;
+}
+
+/* Superuser Links */
+a {
+    color: #0ff; /* Light blue for links */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.text-danger {
+    color: #dc3545; /* Bootstrap danger color */
+}
+
+/* Media Queries (Optional - adjust as needed) */
+@media (max-width: 768px) {
+    /* Adjustments for smaller screens */
+    .col-md-6 {
+        text-align: center; /* Center-align content on smaller screens */
+    }
+}
