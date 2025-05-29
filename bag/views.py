@@ -3,36 +3,10 @@ from products.models import Product
 from django.contrib import messages
 
 
-
 def view_bag(request):
     """A view to allow the user to see the contents of their bag"""
-    
-    bag = request.session.get('bag', {})
-    
-    bag_items = []
-    total = 0
-    product_count = 0
 
-    for item_id, quantity in bag.items():
-        product = get_object_or_404(Product, pk=item_id)
-        item_total = product.price * quantity
-        total += item_total
-        product_count += quantity
-        
-        bag_items.append({
-            'item_id': item_id,
-            'product': product,
-            'quantity': quantity,
-            'item_total': item_total,
-        })
-
-    context = {
-        'bag_items': bag_items,
-        'total': total,
-        'product_count': product_count,
-    }
-
-    return render(request, 'bag/bag.html', context)
+    return render(request, 'bag/bag.html')
 
 
 def add_to_bag(request, item_id):
