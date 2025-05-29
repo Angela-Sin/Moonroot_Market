@@ -93,7 +93,7 @@ a:hover {
     color: #dc3545;
 }
 
-/* Media Queries (Optional - adjust as needed) */
+/* Media Queries */
 @media (max-width: 768px) {
     /* Adjustments for smaller screens */
     .col-md-6 {

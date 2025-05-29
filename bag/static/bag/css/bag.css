@@ -1,0 +1,167 @@
+/* Bag Styling */
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: 1050; 
+    display: none; 
+}
+
+.container.mb-2 {
+    background-color: #1e1e1e;
+    padding: 20px;
+    border-radius: 5px;
+    color: #fff;
+}
+
+/* Header */
+.logo-font {
+    color: #fff;
+}
+
+/* Messages (Toast) - Keep existing styling, but adjust if needed */
+.toast-container {
+    z-index: 1055;
+}
+
+/* Table Styling */
+.table-responsive {
+    border: 1px solid #555; 
+}
+
+.table {
+    color: #fff;
+}
+
+.table thead {
+    background-color: #333;
+}
+
+.table th {
+    border: none; 
+    padding: 10px;
+}
+
+.table td {
+    border: none; 
+    padding: 10px;
+}
+
+.table tr:nth-child(even) {
+    background-color: #222; 
+}
+
+/* Product Info Column */
+.p-3 {
+    padding: 10px;
+}
+
+.w-25 {
+    width: 25%;
+}
+
+.img-fluid.rounded {
+    border: 1px solid #555;
+}
+
+/* Text Styling */
+.my-0 {
+    margin-bottom: 0;
+}
+
+.small.text-muted {
+    color: #ccc;
+}
+
+/* Quantity Column */
+.py-3 {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+/* Price and Subtotal Columns */
+.text-black {
+    color: #fff;
+}
+
+/* Remove Button */
+.btn-danger.btn-sm {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+.btn-danger.btn-sm:hover {
+    background-color: #c82333;
+    border-color: #c82333;
+}
+
+/* Total Section */
+.pt-5 {
+    padding-top: 50px;
+}
+
+.text-end {
+    text-align: right;
+}
+
+h6 {
+    color: #fff;
+}
+
+h4 {
+    color: #fff;
+}
+
+/* Free Delivery Message */
+.text-danger {
+    color: #dc3545;
+}
+
+/* Buttons */
+.btn-outline-dark.rounded-0 {
+    background-color: #333;
+    color: #fff;
+    border-color: #555;
+}
+
+.btn-outline-dark.rounded-0:hover {
+    background-color: #555;
+    border-color: #777;
+}
+
+.btn-success.rounded-0 {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.btn-success.rounded-0:hover {
+    background-color: #218838;
+    border-color: #218838;
+}
+
+/* Empty Bag Message */
+.lead {
+    font-size: 1.25rem;
+    font-weight: 300;
+}
+
+/* Icons */
+.fas {
+    color: #fff;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    /* Adjustments for smaller screens */
+    .table {
+        font-size: 0.8rem;
+    }
+
+    .table td, .table th {
+        padding: 8px;
+    }
+}
