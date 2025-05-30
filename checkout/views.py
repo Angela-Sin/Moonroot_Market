@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpR
 from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
+from django.core.mail import send_mail
+from django.template.loader import render_to_string
 
 from .forms import OrderForm
 from .models import Order, OrderLineItem
@@ -9,6 +11,7 @@ from products.models import Product
 from profiles.forms import UserProfileForm
 from profiles.models import UserProfile
 from bag.contexts import bag_contents
+from django.contrib.auth.decorators import login_required
 
 import stripe
 import json
@@ -31,6 +34,7 @@ def cache_checkout_data(request):
         return HttpResponse(content=e, status=400)
     
 
+@login_required(login_url='account_login')
 def checkout(request):
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
@@ -117,9 +121,10 @@ def checkout_success(request, order_number):
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
 
+    # Attach the user's profile to the order
+
     if request.user.is_authenticated:
         profile = UserProfile.objects.get(user=request.user)
-        # Attach the user's profile to the order
         order.user_profile = profile
         order.save()
 
@@ -137,6 +142,20 @@ def checkout_success(request, order_number):
             user_profile_form = UserProfileForm(profile_data, instance=profile)
             if user_profile_form.is_valid():
                 user_profile_form.save()
+
+    # Send confirmation email
+    subject = f"Order Confirmation - {order.order_number}"
+    body = render_to_string('checkout/confirmation_emails/confirmation_email_body.txt', {
+        'order': order,
+        'contact_email': settings.DEFAULT_FROM_EMAIL,
+    })
+
+    send_mail(
+        subject,
+        body,
+        settings.DEFAULT_FROM_EMAIL,
+        [order.email]
+    )
                 
     messages.success(request, f'Order successfully processed! \
         Your order number is {order_number}. A confirmation \

@@ -121,6 +121,15 @@ strong {
     background-color: #333;
 }
 
+.table tbody td {
+    color: #fff;
+    background-color: #222;
+}
+
+.text-black {
+    color:#000;
+}
+
 .table th, .table td {
     border: none;
     color: #fff;
