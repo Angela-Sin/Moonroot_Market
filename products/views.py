@@ -30,6 +30,22 @@ def all_products(request):
     if 'category' in request.GET:
         selected_category = request.GET['category']
         products = products.filter(category__slug=selected_category)
+
+    sort = request.GET.get('sort', 'name_asc')
+
+    if sort == 'name_asc':
+        products = products.order_by(Lower('name'))
+    elif sort == 'name_desc':
+        products = products.order_by(Lower('name').desc())
+    elif sort == 'price_asc':
+        products = products.order_by('price')
+    elif sort == 'price_desc':
+        products = products.order_by('-price')
+    elif sort == 'rating_desc':
+        products = products.order_by('-rates')
+    else:
+        
+        products = products.order_by('name')
    
     context = {
         'products': products,
