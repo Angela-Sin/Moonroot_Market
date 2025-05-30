@@ -1,7 +1,9 @@
 {% extends "base.html" %}
 {% load static %}
 
-
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'bag/css/bag.css' %}">
+{% endblock %}
 
 {% block page_header %}
 <div class="container header-container">
@@ -12,7 +14,7 @@
 {% endblock %}
 
 {% block content %}
-<div class="overlay"></div>></div>
+<div class="overlay"></div>
 <div class="container mb-2">
     <div class="row">
         <div class="col">
@@ -54,8 +56,9 @@
                 <table class="table table-sm table-borderless">
                     <thead class="text-black">
                         <tr>
+                            <th></th>
                             <th scope="col">Product Info</th>
-                            <th scope="col"></th>
+                            <th scope="col">SKU</th>
                             <th scope="col">Qty</th>
                             <th scope="col">Price</th>
                             <th scope="col">Subtotal</th>
@@ -74,14 +77,22 @@
                             </td>
                             <td class="py-3">
                                 <p class="my-0"><strong>{{ item.product.name }}</strong></p>
+                            </td>
+                            <td class="py-3">
                                 <p class="my-0 small text-muted">SKU: {{ item.product.sku|upper }}</p>
                             </td>
                             <td class="py-3">
-                                <p class="my-0"><strong>{{ item.product.name }}</strong></p>
-                                <p class="my-0 small text-muted">SKU: {{ item.product.sku|upper }}</p>
-                            </td>
-                            <td class="py-3">
-                                {{ item.quantity }}
+                                <form class="d-inline" action="{% url 'bag:update_bag' item.item_id %}" method="POST">
+                                {% csrf_token %}
+                                    <input type="hidden" name="action" value="decrease">
+                                    <button type="submit" class="btn btn-sm btn-outline-secondary">−</button>
+                                </form>
+                                <span class="mx-2">{{ item.quantity }}</span>
+                                <form class="d-inline" action="{% url 'bag:update_bag' item.item_id %}" method="POST">
+                                {% csrf_token %}
+                                    <input type="hidden" name="action" value="increase">
+                                    <button type="submit" class="btn btn-sm btn-outline-secondary">+</button>
+                                </form>
                             </td>
                             <td class="py-3">
                                 ${{ item.product.price }}
@@ -112,13 +123,15 @@
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="5" class="text-end">
+                            <td colspan="5">
+                                <div class="d-flex justify-content-end gap-2">
                                 <a href="{% url 'products' %}" class="btn btn-outline-dark rounded-0 btn-lg">
                                     <i class="fas fa-chevron-left"></i> Keep Shopping
                                 </a>
                                 <a href="{% url 'checkout' %}" class="btn btn-success rounded-0 btn-lg">
                                     <i class="fas fa-lock"></i> Checkout
                                 </a>
+                                <div>
                             </td>
                         </tr>
                     </tbody>
