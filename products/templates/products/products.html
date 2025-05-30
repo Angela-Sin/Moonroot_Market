@@ -70,7 +70,7 @@
                     {% elif product.image_url %}
                         <img src="{{ product.image_url }}" class="product-image" alt="{{ product.name }}">
                     {% else %}
-                        <img src="{% static 'images/noimage.png' %}" class="product-image" alt="No image available"> {# Placeholder image #}
+                        <img src="{% static 'images/no-camera.png' %}" class="product-image" alt="No image available"> {# Placeholder image #}
                     {% endif %}
                 </a>
                 <div class="card-body">
