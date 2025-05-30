@@ -14,6 +14,7 @@
 {% endblock %}
 
 {% block content %}
+<div class="profile-container">
     <div class="overlay"></div>
     <div class="container">
         <div class="row">
@@ -37,10 +38,10 @@
                 <div class="order-history table-responsive">
                     <table class="table table-sm table-borderless">
                         <thead>
-                            <tr>
-                                <th>Order Number</th>
-                                <th>Date</th>
-                                <th>Items</th>
+                            <tr class="order-header">
+                                <th>Order Number</th> 
+                                <th>Date</th>        
+                                <th>Items</th>       
                                 <th>OrderTotal</th>
                             </tr>
                         </thead>
@@ -73,4 +74,5 @@
                 </div>
             </div>
         </div>
+    </div>
 {% endblock %}

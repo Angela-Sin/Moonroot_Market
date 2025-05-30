@@ -1,21 +1,115 @@
+/* Profile Page Styles */
+
+.profile-container {
+  background-color: #1e1e1e;
+  padding: 20px;
+  border-radius: 5px;
+  max-width: 1500px;
+  margin: 0 auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+h2 {
+  color: #fff;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+hr {
+  border: 1px solid #555;
+}
+
+p.text-muted {
+  color: #ccc;
+  margin-bottom: 10px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-control {
+  background-color: #fff;
+  border: 1px solid #555;
+  color: #666;
+  padding: 10px;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: #0ff;
+  box-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+}
+
+.btn-black {
+  background: black;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-black:hover,
+.btn-black:active,
+.btn-black:focus {
+  background: #222;
+  color: white;
+  outline: none;
+}
+
+/* Order History Table */
 .order-history {
-    max-height: 416px; /* height of profile form + submit button */
-    overflow-y: auto;
+  background-color: #4a4949; 
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 20px;
 }
 
-#profile-update-form .form-control {
-    color: #000;
+.table {
+  color: #fff;
 }
 
-#profile-update-form input::placeholder {
-    color: #aab7c4;
+.table th {
+  background-color: #333;
+  border: none;
+  padding: 8px;
+  text-align: left;
 }
 
-#id_default_country,
-#id_default_country option:not(:first-child) {
-    color: #000;
+.table td {
+  border: none;
+  padding: 8px;
 }
 
-#id_default_country option:first-child {
-    color: #aab7c4;
+.table-sm {
+  font-size: 0.9em;
+}
+
+.table-borderless {
+  border: none;
+}
+
+.list-unstyled {
+  margin-bottom: 0;
+}
+
+.small {
+  font-size: 0.8em;
+}
+
+/* Order History Table Header */
+.order-header {
+  background-color: #444; 
+  color: #fff; 
+  font-weight: bold;
+}
+
+.order-header th {
+  padding: 10px; 
 }
