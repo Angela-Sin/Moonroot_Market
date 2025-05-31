@@ -42,10 +42,11 @@
     background-color: #1e1e1e;
     padding: 20px;
     border-radius: 5px;
+    color: black; 
 }
 
 .container.mt-5 .row {
-    color: #fff; 
+    color: black; 
 }
 
 .h-bag {
@@ -122,8 +123,8 @@ strong {
 }
 
 .table tbody td {
-    color: #fff;
-    background-color: #222;
+    color: #070707;
+    background-color: #f9f9f9;
 }
 
 .text-black {
