@@ -68,20 +68,20 @@
                     <tbody>
                         {% for item in bag_items %}
                         <tr>
-                            <td class="p-3 w-25">
+                            <td class="p-3 w-25" data-label="Product Image">
                                 {% if item.product.image %}
                                     <img class="img-fluid rounded" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
                                 {% else %}
                                     <img class="img-fluid rounded" src="{% static 'images/no-image.png' %}" alt="No image">
                                 {% endif %}
                             </td>
-                            <td class="py-3">
+                            <td class="py-3" data-label="Product Info">
                                 <p class="my-0"><strong>{{ item.product.name }}</strong></p>
                             </td>
-                            <td class="py-3">
+                            <td class="py-3" data-label="SKU">
                                 <p class="my-0 small text-muted">SKU: {{ item.product.sku|upper }}</p>
                             </td>
-                            <td class="py-3">
+                            <td class="py-3" data-label="Quantity">
                                 <form class="d-inline" action="{% url 'bag:update_bag' item.item_id %}" method="POST">
                                 {% csrf_token %}
                                     <input type="hidden" name="action" value="decrease">
@@ -94,13 +94,13 @@
                                     <button type="submit" class="btn btn-sm btn-outline-secondary">+</button>
                                 </form>
                             </td>
-                            <td class="py-3">
+                            <td class="py-3" data-label="Price">
                                 ${{ item.product.price }}
                             </td>
-                            <td class="py-3">
+                            <td class="py-3" data-label="Subtotal">
                                 ${{ item.item_total|floatformat:2 }}
                             </td>
-                            <td class="py-3">
+                            <td class="py-3" data-label="Actions">
                                 <form action="{% url 'bag:remove_from_bag' item.item_id %}" method="POST">
                                     {% csrf_token %}
                                     <button type="submit" class="btn btn-danger btn-sm">Remove</button>

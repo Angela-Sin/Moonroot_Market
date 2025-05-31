@@ -366,9 +366,27 @@
     .product-grid {
         grid-template-columns: repeat(2, 1fr); 
     }
-    .category-buttons .btn {
-        width: auto;
+    .category-buttons {
+        display: flex;
+        flex-wrap: nowrap; 
+        overflow-x: auto; 
+        -webkit-overflow-scrolling: touch; 
+        gap: 8px;
+        padding-bottom: 6px; 
     }
+
+    .category-buttons .btn {
+        flex: 0 0 auto;        
+        font-size: 0.8rem;    
+        padding: 6px 10px;    
+        white-space: nowrap;   
+    }
+
+    /* Optional: Hide scrollbar (for webkit browsers like Chrome) */
+    .category-buttons::-webkit-scrollbar {
+        display: none;
+    }
+
     .product-title {
         font-size: 1.2rem;
     }
