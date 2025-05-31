@@ -131,7 +131,7 @@
                       </div>
                     </a>
                 </div>
-
+           </div>
       </div>
   </nav>
   {% endwith %}
@@ -141,7 +141,6 @@
 
     {% if messages %}
        <div class="mt-5">
-        {% if messages %}
             <div class="message-container">
                 {% for message in messages %}
                     <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
@@ -150,23 +149,17 @@
                     </div>
                 {% endfor %}
             </div>
-        {% endif %}
-    </div>
+        </div>
     {% endif %}
     
-    <main class="flex-grow-1 style=position: relative">
-        {% if messages %}
-            <div class="mt-5">
-                <!-- messages -->
-            </div>
-        {% endif %}
-
+     <main class="flex-grow-1 style=position: relative">
         {% block page_header %}{% endblock %}
         {% block content %}{% endblock %}
     </main>
-    
+
+
     <!-- Footer -->
-    <footerc class="site-footer" >
+    <footer class="site-footer" >
     <div class="container">
       <div class="row">
 
@@ -174,11 +167,12 @@
           <h3>Moonroot Market</h3>
           <p>Specialty goods from local growers, herbalists &amp; dreamers.</p>
 
-          <form action="" method="post" class="validate" novalidate>
+          <form action="#" method="post" class="validate" novalidate>
+            {% csrf_token %}
             <h5>Subscribe to Our Newsletter</h5>
             <div class="mb-2">
               <label for="mce-EMAIL" class="form-label">Email Address</label>
-              <input id="mce-EMAIL" type="email" name="EMAIL" class="form-control" required />
+              <input id="mce-EMAIL" type="email" name="EMAIL" class="form-control" required>
             </div>
             <button class="btn btn-outline-light btn-sm" type="submit">Subscribe</button>
           </form>
@@ -187,7 +181,7 @@
         <div class="col-md-3 mb-4">
           <h5>Explore</h5>
           <ul class="list-unstyled">
-            <a href="{% url 'products' %}" {% if url_name == 'products' %}class="active"{% endif %}>All Products</a>
+            <li><a href="{% url 'products' %}">All Products</a></li>
             <li><a href="#">Contact</a></li>
             <li><a href="#">About</a></li>
             <li><a href="#">FAQ</a></li>
