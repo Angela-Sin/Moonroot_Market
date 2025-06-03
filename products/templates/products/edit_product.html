@@ -2,18 +2,14 @@
 {% load static %}
 
 {% block extra_css %}
-<link rel="stylesheet" href="{% static 'products/css/add_edit_product.css' %}">>
+<link rel="stylesheet" href="{% static 'products/css/add_edit_product.css' %}">
 {% endblock %}
 
 {% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"></div>
-        </div>
-    </div>
 {% endblock %}
 
 {% block content %}
+<main class="content-padding-top">
     <div class="overlay"></div>
     <div class="container">
         <div class="row">
@@ -46,6 +42,7 @@
             </div>            
         </div>
     </div>
+    </main>
 {% endblock %}
 
 {% block postloadjs %}

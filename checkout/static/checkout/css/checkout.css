@@ -131,10 +131,28 @@ strong {
     color:#000;
 }
 
+.table thead th {
+    background-color: #333 !important; 
+    color: #fff !important;             
+}
+
+.table tbody td {
+    background-color: #f9f9f9 !important; 
+    color: #070707 !important;     
+    
+}
+
+
 .table th, .table td {
     border: none;
-    color: #fff;
+    color: inherit !important;
+    color: #070707; 
 }
+
+.force-black {
+    color: #000 !important;
+}
+
 
 /* Buttons */
 .btn-black {
@@ -169,7 +187,7 @@ a:hover {
 }
 
 /* Media Queries */
-@media (max-width: 768px) {
+@media (max-width: 768px){
     /* Adjustments for smaller screens */
     .col-md-6 {
         text-align: center;

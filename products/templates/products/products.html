@@ -79,25 +79,18 @@
                     </h5>
                     
                     {% if product.rates %}
-                       <p class="product-rating small">
-                           {# <strong>Rating:</strong> {{ product.rates|floatformat:1 }} / 5 #}
-                           {% widthratio product.rates 1 5 as rating_percentage %}
-                           <span class="star-rating" title="{{ product.rates|floatformat:1 }} out of 5 stars">
-                            {% for i in "12345" %}
-                                {% if forloop.counter <= product.rates|floatformat:0 %}
-                                    <i class="fas fa-star"></i>
-                                {% elif forloop.counter|add:"-0.5" == product.rates|floatformat:1 %} {# Handle half stars if applicable #}
-                                    <i class="fas fa-star-half-alt"></i>
-                                {% else %}
-                                    <i class="far fa-star"></i>
-                                {% endif %}
+                       <p>
+                           <strong>Rating:</strong> {{ product.rates }} / 5
+                           {% for i in "12345" %}
+                               {% if forloop.counter <= product.rates|floatformat:0 %}
+                                <i class="fas fa-star text-warning"></i>
+                            {% else %}
+                                <i class="far fa-star text-warning"></i>
+                            {% endif %}
                             {% endfor %}
-                           </span>
-                           <span class="text-muted">({{ product.rates|floatformat:1 }})</span>
                         </p>
-                    {% else %}
-                        <p class="product-rating small text-muted">No ratings yet</p>
                     {% endif %}
+            
 
                     <p class="card-text product-description">{{ product.description|truncatewords_html:20|safe }}</p>
                     

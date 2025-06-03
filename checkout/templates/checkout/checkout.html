@@ -54,9 +54,8 @@
                                             <img class="img-fluid rounded" src="{% static 'images/no-image.png' %}" alt="No image">
                                         {% endif %}
                                     </td>
-                                    <td class="py-3">
-                                        <p class="my-0"><strong>{{ item.product.name }}</strong></p>
-                                        <p class="my-0 small text-muted">SKU: {{ item.product.sku|upper }}</p>
+                                    <td class="p-3">{{ item.product.name }}
+                                        <p class="my-0 small force-black">SKU: {{ item.product.sku|upper }}</p>
                                     </td>
                                     <td class="py-3">{{ item.quantity }}</td>
                                     <td class="py-3">${{ item.product.price }}</td>

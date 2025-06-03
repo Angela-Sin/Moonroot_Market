@@ -1,10 +1,8 @@
 /* add_edit_product.css */
 
 
-/* Header Styling */
-body .header-container {
-    padding-top: 60px !important; 
-    margin-bottom: 30px !important; 
+main {
+    padding-top: 90px;
 }
 
 /* Add/Edit Product Header */
@@ -149,6 +147,11 @@ a.btn-outline-black {
 
 /* Media Queries */
 @media (max-width: 768px) {
+
+    body .header-container {
+        padding-top: 100px !important;
+    }
+
     .col-md-6 { 
         text-align: center; 
     }
