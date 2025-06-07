@@ -1,16 +1,10 @@
-/* product_detail.css */
-
-/* Header Styling */
-.header-container {
-    padding-top: 90px; /* Adjust as needed to avoid overlap with fixed header */
-}
-
 /* Product Details Container */
+
 .product-detail-container {
-    background-color: #1e1e1e; /* Darker background for better contrast */
+    background-color: #1e1e1e;
     padding: 20px;
     border-radius: 5px;
-    color: #fff; /* Set default text color to white */
+    color: #fff;
 }
 
 /* Product Details Section */
@@ -19,8 +13,8 @@ h3 {
 }
 
 p {
-    color: #ccc; /* Lighter grey for readability */
-    line-height: 1.6; /* Improve line spacing */
+    color: #ccc;
+    line-height: 1.6;
 }
 
 strong {
@@ -29,7 +23,7 @@ strong {
 
 /* Rating Stars */
 .fas.fa-star, .far.fa-star {
-    color: #0f0; /* Green stars */
+    color: rgb(217, 224, 82);
 }
 
 /* Form Styling */
@@ -87,7 +81,7 @@ strong {
 
 /* Superuser Links */
 a {
-    color: #0ff; /* Light blue for links */
+    color: #0ff;
     text-decoration: none;
 }
 
@@ -96,13 +90,13 @@ a:hover {
 }
 
 .text-danger {
-    color: #dc3545; /* Bootstrap danger color */
+    color: #dc3545;
 }
 
-/* Media Queries (Optional - adjust as needed) */
+/* Media Queries */
 @media (max-width: 768px) {
     /* Adjustments for smaller screens */
     .col-md-6 {
-        text-align: center; /* Center-align content on smaller screens */
+        text-align: center;
     }
 }

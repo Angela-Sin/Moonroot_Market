@@ -1,0 +1,168 @@
+
+.day-spell-section {
+    background-color: #1e1e1e;
+    padding: 60px 0;
+}
+
+/* Container */
+.spell-container {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #1e1e1e;
+    border-radius: 8px;
+    color: #fff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: left;
+}
+
+/* Heading */
+h2.mb-4 {
+    color: #d9e052;
+    font-weight: bold;
+}
+
+/* Form Input Group */
+.input-group {
+    display: flex;
+    gap: 10px;
+}
+
+input.form-control {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #555;
+    border-radius: 4px;
+    background-color: #333;
+    color: #eee;
+    font-size: 1rem;
+}
+
+input.form-control::placeholder {
+    color: #999;
+}
+
+button.btn-primary {
+    background-color: #d9e052;
+    border: none;
+    color: #1e1e1e;
+    font-weight: bold;
+    padding: 0 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button.btn-primary:hover {
+    background-color: #b0b53c;
+}
+
+/* Card Styles */
+.card {
+    background-color: #2a2a2a;
+    border-radius: 6px;
+    padding: 20px;
+    color: #ddd;
+    text-align: left;
+}
+
+/* Usage Card */
+.card.bg-light {
+    background-color: #f5f5f5;
+    color: #1e1e1e;
+    text-align: left;
+}
+
+.card h5 {
+    color: #d9e052;
+    margin-bottom: 15px;
+}
+
+.card.bg-light h5 {
+    color: #6a6a00;
+}
+
+.card ol {
+    padding-left: 20px;
+}
+
+.card ol li {
+    margin-bottom: 12px;
+    line-height: 1.5;
+}
+
+.card ol li strong {
+    color: #fff;
+}
+
+.card.bg-light ol li strong {
+    color: #000;
+}
+
+.card p em {
+    font-style: italic;
+    color: #bbb;
+}
+
+.card.bg-light p em {
+    color: #555;
+}
+
+/* Spell Display Card */
+.card.mt-4.shadow-sm {
+    box-shadow: 0 0 10px rgba(217, 224, 82, 0.5);
+}
+
+.card-body h4.card-title {
+    color: #d9e052;
+    margin-bottom: 10px;
+}
+
+.card-body p {
+    margin: 5px 0;
+}
+
+.card-body hr {
+    border-color: #555;
+    margin: 15px 0;
+}
+
+.card-body p.card-text em {
+    color: #c9c973;
+}
+
+/* Message when no spell found */
+p.mt-3 {
+    color: #ff6666;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .spell-container {
+        padding: 15px;
+    }
+
+    .input-group {
+        flex-direction: column;
+        width: 100%; 
+    }
+
+    input.form-control {
+        width: 100%;
+    }
+
+    button.btn-primary {
+        width: 100%;
+    }
+}
+
+footer.site-footer {
+    background-color: #111;
+    color: #eee;
+    padding: 40px 0;
+    border-top: 1px solid #444;
+    position: relative;
+    z-index: 1;
+}

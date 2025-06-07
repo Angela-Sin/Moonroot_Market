@@ -8,9 +8,10 @@ html, body {
     background-color: transparent;
 }
 
+
 main {
     flex: 1 0 auto;
-    padding-top: 20px;  /* push content below header */
+    padding-top: 90px;
     padding-right: 1rem;
     padding-bottom: 2rem;
     padding-left: 1rem;
@@ -85,7 +86,7 @@ main {
 }
 
 .content-padding-top {
-  padding-top: 80px;
+  padding-top: 90px;
 }
 
 /* From Bulma */
@@ -215,8 +216,4 @@ main {
         z-index: 1030;
     }
 
-    .header-container {
-        padding-top: 90px;
-    }
 }
-

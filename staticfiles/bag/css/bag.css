@@ -1,0 +1,198 @@
+/* Container */
+.container.mb-2 {
+    background-color: #1e1e1e;
+    padding: 20px;
+    border-radius: 5px;
+    color: #fff;
+}
+
+/* Table background fix */
+.table-responsive,
+.table {
+    background-color: #1e1e1e !important;
+    color: #fff !important;
+    border: none;
+}
+
+/* Table headers */
+.table thead,
+.table thead th {
+    background-color: #2c2c2c !important;
+    color: #fff !important;
+    border-bottom: 1px solid #444 !important;
+}
+
+/* Table body rows */
+.table tbody tr {
+    background-color: #1e1e1e !important;
+    color: #fff !important;
+}
+
+/* Even row alternate shading if needed */
+.table tbody tr:nth-child(even) {
+    background-color: #262626 !important;
+}
+
+/* Table cells */
+.table td,
+.table th {
+    border: none !important;
+    padding: 12px !important;
+    background-color: inherit !important;
+    color: #fff !important;
+}
+
+/* Product Info */
+.img-fluid.rounded {
+    border: 1px solid #555;
+}
+
+/* Buttons */
+.btn-outline-dark.rounded-0 {
+    background-color: #333;
+    color: #fff;
+    border-color: #555;
+}
+
+.btn-outline-dark.rounded-0:hover {
+    background-color: #555;
+    border-color: #777;
+}
+
+.btn-success.rounded-0 {
+    background-color: #28a745;
+    border-color: #28a745;
+    color: #fff;
+}
+
+.btn-success.rounded-0:hover {
+    background-color: #218838;
+    border-color: #218838;
+}
+
+.btn-danger.btn-sm {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    color: #fff;
+}
+
+.btn-danger.btn-sm:hover {
+    background-color: #c82333;
+    border-color: #c82333;
+}
+
+/* Headings and text */
+h4,
+h6,
+p,
+.small,
+.text-muted {
+    color: #fff !important;
+}
+
+/* Checkout button area */
+.text-end {
+    text-align: right;
+    color: #fff;
+}
+
+
+/* Small Screen Specific Styles (max-width: 767.98px) */
+@media (max-width: 767.98px) {
+
+    /* Container */
+    .container.mb-2 {
+        padding: 15px; 
+    }
+
+    /* Table Styling - Major Overhaul for Mobile */
+    .table-responsive {
+        overflow-x: auto; 
+    }
+
+    .table {
+        width: 100%; 
+        border: none;
+    }
+
+    .table thead {
+        display: none;
+    }
+
+    .table tbody tr {
+        display: block; 
+        margin-bottom: 15px;
+        border: 1px solid #444;
+        border-radius: 5px;
+        padding: 10px;
+    }
+
+    .table td {
+        display: block; 
+        text-align: left;
+        padding: 8px 0;
+        border: none;
+        background-color: transparent !important;
+    }
+
+    .table td:before {
+        content: attr(data-label); 
+        font-weight: bold;
+        text-transform: uppercase;
+        color: #ccc;
+        margin-right: 5px;
+    }
+
+    .table td:first-child {
+        text-align: center;
+    }
+
+    .table td:last-child {
+        text-align: right;
+    }
+
+    /* Product Image */
+    .img-fluid.rounded {
+        width: 100%; 
+        max-height: 150px; 
+        object-fit: cover;
+        margin-bottom: 10px;
+    }
+
+    /* Buttons */
+    .btn-sm {
+        padding: 6px 10px; 
+        font-size: 0.8rem;
+    }
+
+    /* Quantity Controls */
+    .d-inline {
+        display: block; 
+        margin-bottom: 5px;
+    }
+
+    /* Checkout/Shopping Buttons */
+    .d-flex.justify-content-end {
+        text-align: center; 
+    }
+
+    .btn-lg {
+        width: 100%; 
+        margin-bottom: 10px;
+    }
+
+    /* Bag Total */
+    .text-end {
+        text-align: center; 
+    }
+
+    /* No Products Message */
+    .no-products-message {
+        padding: 30px 15px;
+    }
+
+    /* Toast Messages */
+    .toast {
+        width: 95%; 
+    }
+}

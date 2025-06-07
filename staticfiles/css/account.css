@@ -1,0 +1,128 @@
+/* Account Page */
+
+.allauth-form-inner-content {
+  background-color: #474646;
+  padding: 20px;
+  border-radius: 5px;
+  max-width: 400px;
+  margin: 0 auto; 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+h2 {
+  color: #fff;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+p {
+  color: #ccc;
+  line-height: 1.6;
+}
+
+a {
+  color: #0ff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.text-danger {
+  color: #dc3545;
+}
+
+/* Form Styles */
+.signup-form, .login-form {
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-control {
+  background-color: #fff;
+  border: 1px solid #555;
+  color: #666;
+  padding: 10px;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box; 
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: #0ff;
+  box-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+}
+
+/* Buttons */
+.btn-black {
+  background: #fff; 
+  color: #000; 
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-black:hover,
+.btn-black:active,
+.btn-black:focus {
+  background: #222;
+  color: #fff;
+  outline: none;
+}
+
+.shop-now-button {
+  background-color: #fff; 
+  color: #000; 
+  border: 2px solid #000;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease-in-out;
+  display: inline-block; 
+}
+
+.shop-now-button:hover,
+.shop-now-button:focus {
+  background-color: transparent;
+  color: #fff;
+  border-color: #fff;
+}
+
+/* Error Messages */
+ul.errorlist {
+  list-style: none;
+  padding: 0;
+  margin: 5px 0;
+}
+
+ul.errorlist li {
+  color: #dc3545;
+  font-size: 0.9em;
+}
+
+/* Logout Confirmation */
+.logout-confirmation {
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Password Error Messages */
+ul.errorlist li {
+  color: #dc3545; 
+  font-size: 0.9em;
+}
+
+/* Specifically target the password field errors */
+#id_new_password1-error, #id_new_password2-error {
+  color: #dc3545; 
+}
