@@ -12,6 +12,7 @@ urlpatterns = [
     path('bag/', include(('bag.urls', 'bag'), namespace='bag')),
     path('checkout/', include('checkout.urls')),
     path('profile/', include('profiles.urls')),
+    path('day-spell/', include('day_spell.urls')),
 ]
 
 if settings.DEBUG:

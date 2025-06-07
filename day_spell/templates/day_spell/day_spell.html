@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="mb-4">🪄 Discover Your Day Spell</h2>
+    <form method="POST">
+        {% csrf_token %}
+        <div class="input-group mb-3" style="max-width: 400px;">
+            <input type="text" name="keyword" class="form-control" placeholder="Enter mood, need, or intent..." value="{{ query }}">
+            <button type="submit" class="btn btn-primary">Reveal Spell</button>
+        </div>
+    </form>
+
+    {% if spell %}
+        <div class="card mt-4 shadow-sm">
+            <div class="card-body">
+                <h4 class="card-title">{{ spell.title }}</h4>
+                <p><strong>Keyword:</strong> {{ spell.keyword }}</p>
+                {% if spell.moon_phase %}<p><strong>Moon Phase:</strong> {{ spell.moon_phase }}</p>{% endif %}
+                {% if spell.ingredients %}<p><strong>Ingredients:</strong> {{ spell.ingredients }}</p>{% endif %}
+                <hr>
+                <p class="card-text"><em>{{ spell.incantation }}</em></p>
+            </div>
+        </div>
+    {% elif query %}
+        <p class="mt-3">No spell found for <strong>"{{ query }}"</strong>. Try another word!</p>
+    {% endif %}
+</div>
+{% endblock %}
