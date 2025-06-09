@@ -3,6 +3,22 @@
 from django.db import migrations, models
 
 
+def populate_dayspell(apps, schema_editor):
+    DaySpell = apps.get_model('day_spell', 'DaySpell')
+    spells = [
+        {'keyword': 'love', 'title': "Venus's Velvet", 'incantation': "Blush of rose and heart’s desire,\nIgnite the soul with gentle fire.", 'ingredients': "Rose quartz, rose petals, pink silk ribbon", 'moon_phase': "Waxing"},
+        {'keyword': 'luck', 'title': "Clover's Charm", 'incantation': "Fortune's breeze, come dance with me,\nBring bright turns and destiny.", 'ingredients': "Four-leaf clover, green tea, copper coin", 'moon_phase': "Full"},
+        {'keyword': 'peace', 'title': "Calm Waters", 'incantation': "Whispers low and waters still,\nLet calm and grace my spirit fill.", 'ingredients': "Chamomile, seashell, light blue cloth", 'moon_phase': "Waning"},
+        {'keyword': 'energy', 'title': "Zest Spark", 'incantation': "Lightning flash and morning dew,\nFill me up with power true.", 'ingredients': "Orange peel, cinnamon stick, carnelian", 'moon_phase': "New"},
+        {'keyword': 'creativity', 'title': "Muse’s Murmur", 'incantation': "Brush and pen, let ideas flow,\nIn colors bright and thoughts that glow.", 'ingredients': "Amethyst, marigold, feather pen", 'moon_phase': "Waxing"},
+        {'keyword': 'protection', 'title': "Guardian's Grasp", 'incantation': "Shield of light and shadow’s end,\nAround me now, protection send.", 'ingredients': "Black tourmaline, garlic clove, salt circle", 'moon_phase': "Full"},
+        {'keyword': 'intuition', 'title': "Third Eye Glow", 'incantation': "With inner sight and silent guide,\nLet wisdom’s voice not hide.", 'ingredients': "Lapis lazuli, jasmine, indigo candle", 'moon_phase': "Waning"},
+        {'keyword': 'healing', 'title': "Herbal Heart", 'incantation': "From root to leaf and breath anew,\nMend what’s hurt and body too.", 'ingredients': "Aloe, eucalyptus, healing balm", 'moon_phase': "New"},
+    ]
+    for spell_data in spells:
+        DaySpell.objects.create(**spell_data)
+
+
 class Migration(migrations.Migration):
 
     dependencies = [
