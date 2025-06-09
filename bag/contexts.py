@@ -29,9 +29,9 @@ def bag_contents(request):
     else:
         delivery = 0
         free_delivery_delta = 0
- 
+
     grand_total = delivery + total
- 
+
     context = {
         'bag_items': bag_items,
         'total': total,
@@ -41,5 +41,5 @@ def bag_contents(request):
         'free_delivery_threshold': settings.FREE_DELIVERY_THRESHOLD,
         'grand_total': grand_total,
     }
- 
+
     return context
