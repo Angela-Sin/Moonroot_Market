@@ -30,8 +30,10 @@
                     <p class="card-text"><em>{{ spell.incantation }}</em></p>
                 </div>
             </div>
-        {% elif query %}
+        {% else %}
+        {% if query %}
             <p class="mt-3 text-danger fw-bold">No spell found for <strong>"{{ query }}"</strong>. Try another word!</p>
+        {% endif %}
         {% endif %}
 
         <div class="card mt-5 p-4 bg-light">
