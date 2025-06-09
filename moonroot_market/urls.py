@@ -13,7 +13,7 @@ urlpatterns = [
     path('checkout/', include('checkout.urls')),
     path('day-spell/', include('day_spell.urls')),
     path('contact/', include('contact.urls')),
-    path('recipes/', include('recipes.urls')),
+    path('profile/', include('profiles.urls')),
 ]
 
 if settings.DEBUG:

@@ -58,6 +58,8 @@ INSTALLED_APPS = [
     'checkout',
     'day_spell',
     'contact',
+    'profiles',
+    'rituals',
 
     'crispy_forms',
     'crispy_bootstrap5',
