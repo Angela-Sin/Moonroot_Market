@@ -8,7 +8,9 @@ class Category(models.Model):
 
     name = models.CharField(max_length=254)
     friendly_name = models.CharField(max_length=254, null=True, blank=True)
-    slug = models.SlugField(unique=True, null=True, blank=True, default='default-slug') 
+    slug = models.SlugField(
+        unique=True, null=True, blank=True, default='default-slug'
+    ) 
 
     def __str__(self):
         return self.friendly_name if self.friendly_name else self.name
@@ -23,13 +25,17 @@ class Category(models.Model):
 
 
 class Product(models.Model):
-    category = models.ForeignKey('Category', null=True, blank=True, on_delete=models.SET_NULL)
+    category = models.ForeignKey(
+        'Category', null=True, blank=True, on_delete=models.SET_NULL
+    )
     sku = models.CharField(max_length=254, null=True, blank=True)
     name = models.CharField(max_length=254, null=True, blank=True)
     description = models.TextField()
 
     # General metadata
-    weight = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
+    weight = models.DecimalField(
+        max_digits=6, decimal_places=2, null=True, blank=True
+    )
 
     # Magical metadata
     magical_properties = models.TextField(null=True, blank=True)
@@ -42,8 +48,12 @@ class Product(models.Model):
     image = models.ImageField(null=True, blank=True)
 
     # Pricing
-    price = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
-    rates = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
+    price = models.DecimalField(
+        max_digits=6, decimal_places=2, null=True, blank=True
+    )
+    rates = models.DecimalField(
+        max_digits=6, decimal_places=2, null=True, blank=True
+    )
 
     def clean(self):
         if self.price is not None and self.price <= 0:

@@ -57,6 +57,35 @@
 
 # Python
 ## [pep8ci](#https://pep8ci.herokuapp.com/)
+* Chockout
+
+![Image](static/images/checkout.urls.png)
+![Image](static/images/checkout.wievs.png)
+![Image](static/images/checkout.model.png)
+
+* Bag
+
+![Image](static/images/bag.urls.png)
+![Image](static/images/bag.urls1.png)
+
+* Contac
+![Image](static/images/contact.wiev.png)
+
+* Day Spell
+![Image](static/images/day_spell.wievs.png)
+
+* Profile
+![Image](static/images/profile.wievs.png)
+![Image](static/images/profiles.forms.png)
+![Image](static/images/profiles.models.png)
+
+* Settings.py
+![Image](static/images/settings.py.png)
+
+* Webhook
+![Image](static/images/webhook.handler.png)
+![Image](static/images/webhook.py.png)
+
 
 # Browser Compability
 

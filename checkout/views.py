@@ -1,4 +1,10 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse 
+from django.shortcuts import (
+    render,
+    redirect,
+    reverse,
+    get_object_or_404,
+    HttpResponse,
+)
 from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
@@ -8,8 +14,8 @@ from django.template.loader import render_to_string
 from .forms import OrderForm
 from .models import Order, OrderLineItem
 from products.models import Product
-# from profiles.forms import UserProfileForm
-# from profiles.models import UserProfile
+from profiles.forms import UserProfileForm
+from profiles.models import UserProfile
 from bag.contexts import bag_contents
 from django.contrib.auth.decorators import login_required
 
@@ -79,7 +85,9 @@ def checkout(request):
                     return redirect(reverse('view_bag'))
 
             request.session['save_info'] = 'save-info' in request.POST
-            return redirect(reverse('checkout_success', args=[order.order_number]))
+            return redirect(
+                reverse('checkout_success', args=[order.order_number])
+            )
         else:
             messages.error(request, 'There was an error with your form. \
                 Please double check your information.')
@@ -87,7 +95,9 @@ def checkout(request):
     else:
         bag = request.session.get('bag', {})
         if not bag:
-            messages.error(request, "There's nothing in your bag at the moment")
+            messages.error(
+                request, "There's nothing in your bag at the moment"
+            )
             return redirect(reverse('products'))
     
         current_bag = bag_contents(request)
@@ -145,10 +155,13 @@ def checkout_success(request, order_number):
 
     # Send confirmation email
     subject = f"Order Confirmation - {order.order_number}"
-    body = render_to_string('checkout/confirmation_emails/confirmation_email_body.txt', {
-        'order': order,
-        'contact_email': settings.DEFAULT_FROM_EMAIL,
-    })
+    body = render_to_string(
+        'checkout/confirmation_emails/confirmation_email_body.txt',
+        {
+           'order': order,
+           'contact_email': settings.DEFAULT_FROM_EMAIL,
+        }
+    )
 
     send_mail(
         subject,

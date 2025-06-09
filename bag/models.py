@@ -12,8 +12,16 @@ class Bag(models.Model):
 
 
 class BagItem(models.Model):
-    bag = models.ForeignKey(Bag, related_name='items', on_delete=models.CASCADE)
-    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    bag = models.ForeignKey(
+        Bag,
+        related_name='bagitem_set',
+        on_delete=models.CASCADE
+    )
+    product = models.ForeignKey(
+        Product,
+        on_delete=models.CASCADE
+    )
+
     quantity = models.PositiveIntegerField(default=1)
 
     def subtotal(self):
