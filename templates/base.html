@@ -74,10 +74,10 @@
                         <a class="nav-link {% if url_name == 'products' %}active{% endif %}" href="{% url 'products' %}">Shop Now</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link {% if url_name == 'contact' %}active{% endif %}" href="{% url 'day_spell' %}">Day Spell</a>
+                        <a class="nav-link {% if url_name == 'day_spell' %}active{% endif %}" href="{% url 'day_spell' %}">Day Spell</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link {% if url_name == 'about' %}active{% endif %}" href="#">About</a>
+                        <a class="nav-link {% if url_name == 'contact' %}active{% endif %}" href="{% url 'contact:contact' %}">Contact</a>
                       </li>
                     </ul>
                 </div>
@@ -95,7 +95,7 @@
                       {% if request.user.is_authenticated %}
                         <li class="nav-item dropdown">
                           <a class="nav-link dropdown-toggle" href="{% url 'profile' %}" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            My Profile
+                           My Profile
                           </a>
                           <ul class="dropdown-menu" aria-labelledby="profileDropdown">
                             {% if request.user.is_superuser %}
@@ -166,7 +166,7 @@
           <h3>Moonroot Market</h3>
           <p>Specialty goods from local growers, herbalists &amp; dreamers.</p>
 
-          <form action="http://eepurl.com/jgGdYI" method="post" class="validate" novalidate>
+          <form action="https://eepurl.com/jgGdYI" method="post" class="validate" novalidate>
             {% csrf_token %}
             <h5>Subscribe to Our Newsletter</h5>
             <div class="mb-2">
@@ -181,9 +181,8 @@
           <h5>Explore</h5>
           <ul class="list-unstyled">
             <li><a href="{% url 'products' %}">All Products</a></li>
+            <li><a href="{% url 'day_spell' %}">Day Spell</a></li>
             <li><a href="{% url 'contact:contact' %}">Contact</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">FAQ</a></li>
           </ul>
         </div>
 

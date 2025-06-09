@@ -14,7 +14,6 @@ urlpatterns = [
     path('profile/', include('profiles.urls')),
     path('day-spell/', include('day_spell.urls')),
     path('contact/', include('contact.urls')),
-
 ]
 
 if settings.DEBUG:
