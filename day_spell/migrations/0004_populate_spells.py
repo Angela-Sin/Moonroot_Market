@@ -19,6 +19,7 @@ def populate_dayspell(apps, schema_editor):
         except Exception as e:
             print(f"Error creating spell: {spell_data['title']} - {e}")
 
+
 class Migration(migrations.Migration):
 
     dependencies = [
