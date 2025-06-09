@@ -11,9 +11,9 @@ urlpatterns = [
     path('products/', include('products.urls')),
     path('bag/', include(('bag.urls', 'bag'), namespace='bag')),
     path('checkout/', include('checkout.urls')),
-    path('profile/', include('profiles.urls')),
     path('day-spell/', include('day_spell.urls')),
     path('contact/', include('contact.urls')),
+    path('recipes/', include('recipes.urls')),
 ]
 
 if settings.DEBUG:
