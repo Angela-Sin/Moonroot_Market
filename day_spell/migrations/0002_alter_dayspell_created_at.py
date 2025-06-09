@@ -16,7 +16,10 @@ def populate_dayspell(apps, schema_editor):
         {'keyword': 'healing', 'title': "Herbal Heart", 'incantation': "From root to leaf and breath anew,\nMend what’s hurt and body too.", 'ingredients': "Aloe, eucalyptus, healing balm", 'moon_phase': "New"},
     ]
     for spell_data in spells:
-        DaySpell.objects.create(**spell_data)
+        try:
+            DaySpell.objects.create(**spell_data)
+        except Exception as e:
+            print(f"Error creating spell: {spell_data['title']} - {e}")
 
 
 class Migration(migrations.Migration):
