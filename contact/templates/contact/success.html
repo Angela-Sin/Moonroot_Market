@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'day_spell/css/day_spell.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="day-spell-section">
+    <div class="container spell-container mt-5 mb-5 text-center">
+        <h2 class="mb-4">✨ Message Sent!</h2>
+
+        <div class="card shadow p-5 bg-light">
+            <h4 class="text-success mb-3">Thank you for reaching out 🌿</h4>
+            <p>Your message has been successfully delivered. We’ll get back to you as soon as we can — usually within 1–2 business days.</p>
+
+            <p>
+                In the meantime, feel free to 
+                <a href="{% url 'day_spell' %}" class="link-primary fw-bold">discover your Day Spell</a>
+                or browse other magical corners of the site.
+            </p>
+
+            <p class="mt-4">
+                <em>With gratitude and good vibes,<br>🌙 The Moonroot Market Team</em>
+            </p>
+        </div>
+
+        <div class="mt-4">
+            <a href="{% url 'home' %}" class="btn btn-outline-primary mt-3">Return Home</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

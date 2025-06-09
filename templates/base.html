@@ -166,7 +166,7 @@
           <h3>Moonroot Market</h3>
           <p>Specialty goods from local growers, herbalists &amp; dreamers.</p>
 
-          <form action="#" method="post" class="validate" novalidate>
+          <form action="http://eepurl.com/jgGdYI" method="post" class="validate" novalidate>
             {% csrf_token %}
             <h5>Subscribe to Our Newsletter</h5>
             <div class="mb-2">
@@ -181,7 +181,7 @@
           <h5>Explore</h5>
           <ul class="list-unstyled">
             <li><a href="{% url 'products' %}">All Products</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="{% url 'contact:contact' %}">Contact</a></li>
             <li><a href="#">About</a></li>
             <li><a href="#">FAQ</a></li>
           </ul>
@@ -201,7 +201,9 @@
 
       <div class="row mt-4">
         <div class="col text-center">
-          <small>&copy; 2025 Moonroot Market | Rooted in community &amp; care.</small>
+          <small>&copy; 2025 Moonroot Market <a href="https://www.termsfeed.com/live/8f5defca-ee34-4dc5-88e1-09012b693747" target="_blank" rel="noopener noreferrer">
+        Privacy Policy
+      </a>  | Rooted in community &amp; care.</small>
         </div>
       </div>
     </div>

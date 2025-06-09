@@ -31,6 +31,9 @@
     font-size: 1rem;
     border-radius: 25px;
     transition: background-color 0.3s ease, color 0.3s ease;
+    width: auto; 
+    height: auto;
+    padding: 12px; 
 }
 
 .category-buttons .btn-success {
@@ -387,7 +390,6 @@
         white-space: nowrap;   
     }
 
-    /* Optional: Hide scrollbar (for webkit browsers like Chrome) */
     .category-buttons::-webkit-scrollbar {
         display: none;
     }

@@ -33,13 +33,15 @@
             {% if product.rates %}
                <p>
                    <strong>Rating:</strong> {{ product.rates }} / 5
-                   {% for i in "12345" %}
-                        {% if forloop.counter <= product.rates|floatformat:0 %}
-                            <i class="fas fa-star text-warning"></i>
-                        {% else %}
-                            <i class="far fa-star text-warning"></i>
+                   {% with product.rates|floatformat:0 as rounded_rating %}
+                       {% for i in "12345" %}
+                           {% if forloop.counter <= rounded_rating|add:"0" %}
+                               <i class="fas fa-star text-warning"></i>
+                            {% else %}
+                                <i class="far fa-star text-warning"></i>
                         {% endif %}
                     {% endfor %}
+                    {% endwith %}
                 </p>
             {% endif %}
             

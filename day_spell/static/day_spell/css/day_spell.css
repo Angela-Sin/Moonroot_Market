@@ -12,7 +12,7 @@
     background-color: #1e1e1e;
     border-radius: 8px;
     color: #fff;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Lato', sans-serif;
     text-align: left;
 }
 
@@ -150,7 +150,10 @@ p.mt-3 {
     }
 
     input.form-control {
-        width: 100%;
+        flex: none;               
+        width: 100% !important;   
+        min-width: 100%;
+        box-sizing: border-box;
     }
 
     button.btn-primary {

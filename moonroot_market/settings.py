@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'widget_tweaks',
 
     'home',
     'products',
@@ -56,6 +57,7 @@ INSTALLED_APPS = [
     'checkout',
     'profiles',
     'day_spell',
+    'contact',
 
     'crispy_forms',
     'crispy_bootstrap5',
