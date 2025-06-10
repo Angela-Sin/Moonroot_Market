@@ -59,6 +59,7 @@
     {% endif %}
     
     <div class="product-grid"> 
+        {% for product in products %}
             <div class="card h-100 product-card">
                 <a href="{% url 'product_detail' product.id %}" class="product-image-container">
                     {% if product.image %}

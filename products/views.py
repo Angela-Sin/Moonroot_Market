@@ -87,9 +87,15 @@ def add_product(request):
             )
     else:
         form = ProductForm()
-    template = 'products/add_product.html'
+
+    for field_name, field in form.fields.items():
+        existing_classes = field.widget.attrs.get('class', '')
+        field.widget.attrs['class'] = (existing_classes + ' form-control').strip()
+
+    template = 'products/add_edit_product.html'
     context = {
         'form': form,
+        'action': 'Add',
     }
 
     return render(request, template, context)
@@ -118,10 +124,15 @@ def edit_product(request, product_id):
         form = ProductForm(instance=product)
         messages.info(request, f'You are editing {product.name}')
 
-    template = 'products/edit_product.html'
+    for field_name, field in form.fields.items():
+        existing_classes = field.widget.attrs.get('class', '')
+        field.widget.attrs['class'] = (existing_classes + ' form-control').strip()
+
+    template = 'products/add_edit_product.html'
     context = {
         'form': form,
         'product': product,
+        'action': 'Edit',
     }
 
     return render(request, template, context)
