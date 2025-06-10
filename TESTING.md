@@ -53,78 +53,9 @@
 All tests were successfully completed, ensuring a seamless user experience across all functionalities. 
 
 
-### Common Elements on All Pages
-
-### Common Elements on All Pages
-- **Navigation Bar**  
-  The navigation bar provides easy and seamless access to different pages and stays fixed at the top of the page as you scroll.  
-  The following links are included:
-  - **Home** (Currently Active)
-  - **Shop Now**
-  - **Day Spell** 
-  - **Rituals**
-  - **Search Bar** (For quick search functionality)
-    - User can search for products by entering a keyword in the search bar. The search function looks for matches in the title, summary, content, and category of products.
-
-         - If a match is found, the relevant posts will be displayed.
-         - If no keyword is entered, all posts will be shown.
-  - **My Profile**
-    - **Manage Product** (Only for Admin)
-    - **My Profile**
-    - **Logout** (If loggined)
-    - **Register** (If not loginned)
-    - **Login** (If not loginned)
-
-![Image](static/images/header.png)
-
 - ## Responsive Navigation for Smaller Devices
-  On tablets and smaller devices, the website uses a hamburger menu (☰) to improve navigation.
-
-   - The menu is hidden by default and appears when the hamburger icon is clicked.
-   - It includes links to Home, Shop Now, Day Spell, Rituals,, Contact and My Profile for easy access.
-   - A search bar is placed below the menu, allowing users to quickly find content.
-
-![Image](static/images/mob.header.png)
-
-- ## Sticky Footer
-
-The sticky footer in **Moonroot Market** is designed to stay fixed at the bottom of every page, providing users with quick access to important information and navigation links without needing to scroll.
-
-### Contents:
-
-- **Brand Name & Tagline**  
-  Displays the site name *Moonroot Market* along with the tagline:  
-  *Specialty goods from local growers, herbalists & dreamers.*  
-  This highlights the market's focus on community and artisanal products.
-
-- **Newsletter Subscription**  
-  A simple subscription form prompting users to:  
-  *Subscribe to Our Newsletter* with an *Email Address* input field, encouraging visitors to stay connected.
-
-- **Explore Section**  
-  Quick links to key pages:  
-  - All Products  
-  - Day Spell  
-  - Contact  
-
-- **Follow Us**  
-  Social media links or icons allowing users to engage with the brand on various platforms.
-
-- **Legal & Branding**  
-  Includes:  
-  `© 2025 Moonroot Market Privacy Policy`  
-  and the phrase *Rooted in community & care.* emphasizing legal ownership and brand values.
-
-### Purpose:
-
-The sticky footer enhances usability by consolidating essential navigation, branding, legal information, and user engagement tools into a consistently visible area, making it easy for users to explore the site and stay connected.
 
 
-![Image](static/images/footer.png)
-
-
-
-- ## Responsive Navigation for Smaller Devices
 
 
 # Lighthouse 
@@ -136,10 +67,32 @@ The sticky footer enhances usability by consolidating essential navigation, bran
 
 # Code validation
 ## [Html](https://validator.w3.org/)
+### Home Page
+![Image](static/images/home.ch.png)
+![Image](static/images/home.ch.1.png)
+### Shopping
+![Image](static/images/succecc.png)
+### Product Detail
+![Image](static/images/succecc.png)
+### Bag
+![Image](static/images/succecc.png)
+### Checkout
+![Image](static/images/checkout.ch.png)
+### Checkout Success
+![Image](static/images/checkout.ch.png)
 
+### Login
+![Image](static/images/succecc.png)
+### Logout
+![Image](static/images/succecc.png)
+### Register
+![Image](static/images/succecc.png)
+### Day Spell
+![Image](static/images/succecc.png)
+### Contact
+![Image](static/images/succecc.png)
+### Rituals
 
-## CSS
-## [CSS-Valitador](#https://jigsaw.w3.org/css-validator/)
 
 # Python
 ## [pep8ci](#https://pep8ci.herokuapp.com/)
