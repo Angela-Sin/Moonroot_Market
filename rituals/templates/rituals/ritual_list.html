@@ -10,17 +10,24 @@
     <div class="row">
         <div class="col">
             <h1 class="text-center">Explore Our Rituals</h1>
+            {% if user.is_superuser %}
+            <div class="text-center my-3">
+                <a href="{% url 'add_ritual' %}" class="btn btn-success">
+                    Add New Ritual
+                </a>
+            </div>
+            {% endif %}
         </div>
     </div>
 </div>
 {% endblock %}
 
 {% block content %}
-<div class="container ritual-page-wrapper my-5">
+<div class="container product-page-wrapper my-5">
     {% if rituals %}
     <div class="product-grid">
         {% for ritual in rituals %}
-        <div class="product-card">
+        <div class="card h-100 product-card">
             <div class="product-image-container">
                 {% if ritual.image %}
                     <img src="{{ ritual.image.url }}" class="product-image" alt="{{ ritual.name }}">
@@ -34,7 +41,7 @@
                 </h5>
                 <p class="product-description">{{ ritual.description|truncatewords_html:25|safe }}</p>
                 <div class="product-actions">
-                    <a href="{% url 'ritual_detail' ritual.id %}" class="view-details-btn">
+                    <a href="{% url 'ritual_detail' ritual.id %}" class="btn view-details-btn">
                         View Details
                     </a>
                 </div>

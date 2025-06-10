@@ -16,8 +16,8 @@
 {% endblock %}
 
 {% block content %}
-<div class="overlay"></div> {# For potential popups or off-canvas elements, if you add them later #}
-<div class="container product-page-wrapper my-5"> {# Added my-5 for vertical margin #}
+<div class="overlay"></div> 
+<div class="container product-page-wrapper my-5"> 
     <!-- Shop by Category -->
     <div class="text-center category-header">
         <h2>Shop by Category</h2>
@@ -51,18 +51,14 @@
                         <option value="price_asc" {% if request.GET.sort == 'price_asc' %}selected{% endif %}>Price (Low to High)</option>
                         <option value="price_desc" {% if request.GET.sort == 'price_desc' %}selected{% endif %}>Price (High to Low)</option>
                         <option value="rating_desc" {% if request.GET.sort == 'rating_desc' %}selected{% endif %}>Rating (High to Low)</option>
-                        {# Add more sort options as needed, e.g., by date added #}
                     </select>
-                    {# You might also want a direction toggle if not baked into sort values #}
                 </form>
             </div>
         </div>
     </div>
     {% endif %}
     
-    <div class="product-grid"> {# Replaced class="row" with "product-grid" #}
-        {% for product in products %}
-            {# Removed col-*-* classes here, .product-grid CSS handles columns #}
+    <div class="product-grid"> 
             <div class="card h-100 product-card">
                 <a href="{% url 'product_detail' product.id %}" class="product-image-container">
                     {% if product.image %}
@@ -96,7 +92,7 @@
 
                     <p class="card-text product-description">{{ product.description|truncatewords_html:20|safe }}</p>
                     
-                    <div class="product-actions"> {# Wrapper for price and buttons #}
+                    <div class="product-actions">
                         <p class="product-price mb-2">${{ product.price|floatformat:2 }}</p>
 
                         <form method="POST" action="{% url 'bag:add_to_bag' product.id %}" class="add-to-bag-form">
