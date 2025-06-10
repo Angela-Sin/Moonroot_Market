@@ -77,7 +77,7 @@
                         <a class="nav-link {% if url_name == 'day_spell' %}active{% endif %}" href="{% url 'day_spell' %}">Day Spell</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link {% if url_name == 'rituals' %}active{% endif %}" href="#">Rituals</a>
+                        <a class="nav-link {% if url_name == 'rituals' %}active{% endif %}" href="{% url 'ritual_list' %}">Rituals</a>
                       </li>
                       <li class="nav-item">
                         <a class="nav-link {% if url_name == 'contact' %}active{% endif %}" href="{% url 'contact:contact' %}">Contact</a>

@@ -1,3 +1,9 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import Ritual
+
+
+@admin.register(Ritual)
+class RitualAdmin(admin.ModelAdmin):
+    list_display = ('name',)
+    search_fields = ('name',)

@@ -14,6 +14,7 @@ urlpatterns = [
     path('day-spell/', include('day_spell.urls')),
     path('contact/', include('contact.urls')),
     path('profile/', include('profiles.urls')),
+    path('rituals/', include('rituals.urls')),
 ]
 
 if settings.DEBUG:

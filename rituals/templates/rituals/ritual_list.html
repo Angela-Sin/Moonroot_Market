@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'products/css/products.css' %}">
+{% endblock %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col">
+            <h1 class="text-center">Explore Our Rituals</h1>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="container ritual-page-wrapper my-5">
+    {% if rituals %}
+    <div class="product-grid">
+        {% for ritual in rituals %}
+        <div class="product-card">
+            <div class="product-image-container">
+                {% if ritual.image %}
+                    <img src="{{ ritual.image.url }}" class="product-image" alt="{{ ritual.name }}">
+                {% else %}
+                    <img src="{% static 'images/no-image-ritual.png' %}" class="product-image" alt="No image available">
+                {% endif %}
+            </div>
+            <div class="card-body">
+                <h5 class="product-title">
+                    <a href="{% url 'ritual_detail' ritual.id %}" class="text-dark text-decoration-none">{{ ritual.name }}</a>
+                </h5>
+                <p class="product-description">{{ ritual.description|truncatewords_html:25|safe }}</p>
+                <div class="product-actions">
+                    <a href="{% url 'ritual_detail' ritual.id %}" class="view-details-btn">
+                        View Details
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <p class="no-products-message text-center">Sorry, no rituals are currently available.</p>
+    {% endif %}
+</div>
+{% endblock %}

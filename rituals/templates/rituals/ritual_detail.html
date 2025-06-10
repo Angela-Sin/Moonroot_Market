@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'products/css/product_detail.css' %}">
+{% endblock %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col">
+            <h1 class="text-center my-4">{{ ritual.name }}</h1>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="container my-5 ritual-detail-container">
+    <div class="row">
+        <div class="col-md-6">
+            {% if ritual.image %}
+                <img src="{{ ritual.image.url }}" class="img-fluid rounded" alt="{{ ritual.name }}">
+            {% else %}
+                <img src="{% static 'images/no-image-ritual.png' %}" class="img-fluid rounded" alt="No image available">
+            {% endif %}
+        </div>
+
+        <div class="col-md-6">
+            <h3 class="mb-3">{{ ritual.name }}</h3>
+            
+            <p class="mb-3">{{ ritual.description }}</p>
+
+            <h5>Instructions</h5>
+            <p class="mb-3">{{ ritual.instructions|linebreaks }}</p>
+
+            {% if ritual.related_products %}
+                <h5>Related Products</h5>
+                <p class="mb-4">{{ ritual.related_products }}</p>
+            {% endif %}
+
+            <a href="{% url 'ritual_list' %}" class="btn btn-secondary">Back to Rituals</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
