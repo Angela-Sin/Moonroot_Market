@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import user_passes_test
 from .models import Ritual
 from .forms import RitualForm
+from django.contrib import messages
 
 
 def is_admin(user):
@@ -41,3 +42,13 @@ def ritual_list(request):
 def ritual_detail(request, pk):
     ritual = get_object_or_404(Ritual, pk=pk)
     return render(request, 'rituals/ritual_detail.html', {'ritual': ritual})
+
+
+@user_passes_test(is_admin)
+def delete_ritual(request, ritual_id):
+    ritual = get_object_or_404(Ritual, pk=ritual_id)
+    if request.method == 'POST':
+        ritual.delete()
+        messages.success(request, 'Ritual deleted successfully.')
+        return redirect('ritual_list')
+    return render(request, 'rituals/confirm_delete.html', {'ritual': ritual})
