@@ -32,21 +32,29 @@
 
 | **User Story** | **Testing Method** | **Expected Outcome** | **Result** |
 |---------------|-------------------|---------------------|------------|
-| As a user, I want a simple navigation menu to find content easily. | Manual UI Testing | [Navigation](#common-elements-on-all-pages) is intuitive and accessible. |  |
-| As a user, I want the navigation menu to be accessible on all devices. | Responsive Testing | [Navigation](#common-elements-on-all-pages) adjusts properly on different screen sizes. |  |
-| As a user, I want to see social media links for community interaction. | Manual UI Testing | [Social media](#common-elements-on-all-pages) links are visible and clickable. |  |
-| As a user, I want to register an account to access features. | Manual UI Testing | Registration form submits successfully and logs user in. |  |
-| As a user, I want to log in and out of my account securely. | Manual UI Testing | Login and logout function correctly. |  |
-| As a user, I want to browse products easily. | Manual UI Testing | Product listing loads correctly with accurate information. |  |
-| As a user, I want to view detailed information about a product. | Manual UI Testing | Product detail page shows complete info including images, description, price. |  |
-| As a user, I want to add products to my bag. | Manual UI Testing | Items can be added to the bag and quantities updated correctly. |  |
-| As a user, I want to view my bag with all selected items and totals. | Manual UI Testing | Bag displays all items with accurate quantities and price subtotals. |  |
+| As a user, I want a simple navigation menu to find content easily. | Manual UI Testing | [Navigation](#common-elements-on-all-pages) is intuitive and accessible. | ✅ Pass |
+| As a user, I want the navigation menu to be accessible on all devices. | Responsive Testing | [Navigation](#common-elements-on-all-pages) adjusts properly on different screen sizes. | ✅ Pass |
+| As a user, I want to see social media links for community interaction. | Manual UI Testing | [Social media](#common-elements-on-all-pages) links are visible and clickable. | ✅ Pass |
+| As a user, I want to register an account to access features. | Manual UI Testing | Registration form submits successfully and logs user in. |✅ Pass  |
+| As a user, I want to log in and out of my account securely. | Manual UI Testing | Login and logout function correctly. |✅ Pass  |
+| As a user, I want to browse products easily. | Manual UI Testing | Product listing loads correctly with accurate information. |✅ Pass  |
+| As a user, I want to view detailed information about a product. | Manual UI Testing | Product detail page shows complete info including images, description, price. | ✅ Pass |
+| As a user, I want to add products to my bag. | Manual UI Testing | Items can be added to the bag and quantities updated correctly. | ✅ Pass |
+| As a user, I want to view my bag with all selected items and totals. | Manual UI Testing | Bag displays all items with accurate quantities and price subtotals. |✅ Pass  |
 | As a user, I want to complete checkout securely. | Manual UI Testing / Automated Testing | Checkout process completes successfully with payment confirmation. |  |
-| As a user, I want to receive a confirmation email after successful payment. | Email Testing | Payment success email is sent promptly with correct order details. |  |
-| As a user, I want to receive an authentication email after registering. | Email Testing | Registration email is sent with a working verification link. |  |
+| As a user, I want to receive a confirmation email after successful payment. | Email Testing | Payment success email is sent promptly with correct order details. |  ✅ Pass|
+| As a user, I want to receive an authentication email after registering. | Email Testing | Registration email is sent with a working verification link. |✅ Pass  |
 | As a user, I want to subscribe to newsletters or offers. | Manual UI Testing | Subscription form works and confirmation message/email is received. | ✅ Pass |
 | As a user, I want to contact support easily via the contact page. | Manual UI Testing | Contact form submits successfully and sends the inquiry. |  |
 | As a user, I want to read the privacy policy to understand data use. | Manual UI Testing | Privacy Policy page is accessible, readable, and contains accurate information. | ✅ Pass |
+| As an admin, I want to **easily navigate the admin and site pages**, so I can manage content efficiently. | Manual UI Testing | Navigation bar and dashboard links are visible and functional. Admin can access key areas without errors. | ✅ Pass |
+| As a registered admin, I want to **add products** to the site, so I can manage the catalog. | Manual UI Testing | "Add Product" button is visible. Admin can add a product through the form. Product appears in the product list. | ✅ Pass |
+| As an admin, I want to **edit existing products**, so I can update product info. | Manual UI Testing | Edit buttons appear for each product. Changes made to a product are saved and reflected correctly. | ✅ Pass |
+| As an admin, I want to **delete products**, so I can remove outdated or incorrect listings. | Manual UI Testing | Delete buttons are available. Product is removed after confirmation. No broken references appear. | ✅ Pass |
+| As an admin, I want to **add site information** (e.g., about, FAQs), so visitors understand our purpose. | Manual UI Testing | CMS/editable content areas are accessible. Added content is displayed correctly on public pages. | ✅ Pass |
+| As an admin, I want to **add new rituals**, so I can grow the rituals section. | Manual UI Testing | "Add Ritual" button is visible. Admin can create a new ritual via form, and it appears in the list. | ✅ Pass |
+| As an admin, I want to **edit rituals**, so I can keep ritual details up to date. | Manual UI Testing | Each ritual has an edit option. Changes save successfully and appear correctly on the site. | ✅ Pass |
+| As an admin, I want to **delete rituals**, so I can remove old or irrelevant ones. | Manual UI Testing | Delete buttons trigger a confirmation prompt. Ritual is removed from the list after deletion. | ✅ Pass |
 
 
 

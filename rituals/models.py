@@ -8,6 +8,7 @@ class Ritual(models.Model):
     related_products = models.TextField(
         help_text="List or description of related products"
     )
+    magic_properties = models.TextField(blank=True, null=True)
     image = models.ImageField(
         upload_to='ritual_images/', blank=True, null=True
     )

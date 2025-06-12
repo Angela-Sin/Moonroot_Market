@@ -10,6 +10,7 @@ class RitualForm(forms.ModelForm):
             'description',
             'instructions',
             'related_products',
+            'magic_properties',
             'image',
         ]
 
