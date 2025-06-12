@@ -116,8 +116,8 @@
 
                         {% if request.user.is_superuser %}
                             <small class="admin-links text-muted">
-                                <a href="{% url 'edit_product' product.id %}">Edit</a> | 
-                                <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
+                                <a href="{% url 'edit_product' product.id %}" class="btn btn-sm btn-outline-secondary">Edit</a> | 
+                                <a class="btn btn-sm btn-outline-danger" href="{% url 'delete_product' product.id %}">Delete</a>
                             </small>
                         {% endif %}
                     </div>
