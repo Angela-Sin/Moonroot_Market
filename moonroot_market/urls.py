@@ -1,4 +1,4 @@
-from .views import handler404
+from .views import handler404, google_site_verification
 from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
@@ -27,3 +27,7 @@ if settings.DEBUG:
 
 
 handler404 = 'moonroot_market.views.handler404'
+
+urlpatterns += [
+    path('google94c9ffb3d4c799c9.html', google_site_verification),
+]
