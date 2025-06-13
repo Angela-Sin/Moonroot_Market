@@ -67,9 +67,10 @@ All tests were successfully completed, ensuring a seamless user experience acros
 
 
 # Lighthouse 
+![Image](static/images/ligthouse.m.png)
 ## Mobile Phone
 
-
+![Image](static/images/lighthouse.png)
 ## Desktop
 
 
