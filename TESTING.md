@@ -193,3 +193,17 @@ The issue was caused by the browser **not properly reading the jQuery script**, 
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"
         integrity="sha384-JlY8zMqb6gci8CnmUHzbqUOdD3jZP2BfIWeUE5SrZT4TgZTrZnMzI+1SWSK+3z+s"
         crossorigin="anonymous"></script>
+
+## 🐞 Bug Report Explanation: Fraud Warning During Email Confirmation
+
+### 📋 Summary
+
+Some users encountered **fraud activity warnings** after confirming their email addresses during the registration process.
+
+### 🔍 Root Cause
+
+After investigation, the issue was traced to the following meta tag present in the HTML template:
+
+```html
+<meta name="google-site-verification" content="https://moonroot-market-41ba98f58574.herokuapp.com/">
+
